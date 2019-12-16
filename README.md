@@ -19,7 +19,14 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
 
 * Lab 2 - Tasks, Jobs, Stages and Dependencies
 * Lab 3 - Working with (YAML) Templates
+  * Templates
+  * Parameters
+  
 * Lab 4 - Triggers
+  * Branches
+  * Path
+  * Container
+
 * Lab 5 - CI and CD
 * ...
 
