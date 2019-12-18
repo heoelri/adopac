@@ -26,8 +26,6 @@ And click on "Import".
 
 This will now import the whole Repository from GitHub into your new Azure DevOps Repository.
 
-## 1.2 Use the assistant to add tasks
-
 * Click on "Pipelines"
 * Click on "Pipelines"
 * Click on "Create Pipeline"
@@ -48,7 +46,7 @@ This will now create a new basic YAML-based pipeline for you.
 
 ![Review your pipeline](img/lab1_review_your_pipeline.png)
 
-## 1.3 Run your pipeline
+## 1.2 Run your pipeline
 
 Now that we have created our very first "Starter pipeline"
 
@@ -70,11 +68,23 @@ And click on:
 
 You can also select if you want to write your change into the master branch or if you want to create another branch for your change.
 
+The pipeline will now start and after a few seconds the output should look like this:
+
+![Pipeline Output](img/lab1_pipeline_output.png)
+
+This is the summary of a specific pipeline run. You can come back at any time to lookup the status and the output of a specific pipeline run.
+
 > **What is a Branch?**<br>
 > Branches are lightweight references that keep a history of commits and provide a way to isolate changes for a feature or a bug fix from your master branch and other work. Committing changes to a branch doesn't affect other branches. You can push and share branches with other people on your team without having to merge the changes into master.<br>
 > To learn more about branches, goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/key-concepts-repos?view=azure-devops#branch).
 
-## 1.4 Analyze the output
+## 1.3 Analyze the output
+The previously created pipeline was very basic. It does not contain much more than a one-line script that prints out "Hello World" and a multi-line script that prints out two lines with very basic echo commands.
+
+![Pipeline Output](img/lab1_job_output.png)
+
+
+## 1.4 Use the assistant to add tasks
 
 ## 1.5 Extend your pipeline with variables
 
