@@ -28,4 +28,4 @@ After a few seconds you should see your new project in Azure DevOps:
 
 ![First look / new project](img/lab0_first_look_new_project.png)
 
-We're now done with the preparation and can continue with [Lab 1](/lab1/lab1.md).
+We're now done with the preparation and can continue with [Lab 1](../lab1/lab1.md) (or go back to the [Overview](../README.md)).
