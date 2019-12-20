@@ -81,8 +81,44 @@ This is the summary of a specific pipeline run. You can come back at any time to
 ## 1.3 Analyze the output
 The previously created pipeline was very basic. It does not contain much more than a one-line script that prints out "Hello World" and a multi-line script that prints out two lines with very basic echo commands.
 
+Let us now have a deeper look into the output of your pipeline.
+
+* Click on "Pipelines" > "Pipelines"
+* Click on your pipeline in "Recently run pipelines"
+
+![Recently run pipelines](img/lab1_recently_run_pipelines.png)
+
+In this dialog you'll now see all runs of your selected pipeline. 
+
+* Select the last pipeline run
+
+Here you'll now see the details of the last pipeline run:
+
+![Last pipeline run with comments](img/lab1_last_pipeline_run_with_comments.png)
+
+This dialog shows you some important information, like:
+
+1) Who has triggered the pipeline
+2) The branch (here master)
+3) Start date/time
+4) Duration
+5) Jobs and their status
+
+To get even more insights about the jobs, 
+
+* click on "Job" 
+
+in the "Jobs" section. This will bring you to the job details:
+
 ![Pipeline Output](img/lab1_job_output.png)
 
+Here you can now get deeper insights into each indiviual job and their tasks and steps.
+
+* Click on "Run a one-line script"
+
+![Job Status Output](img/lab1_job_status_one_line_script.png)
+
+Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
 
 ## 1.4 Use the assistant to add tasks
 
