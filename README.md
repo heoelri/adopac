@@ -13,7 +13,7 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Create a YAML-Pipeline via GUI](/labs/lab1/lab1.md#11-create-a-yaml-pipeline-via-gui) 
   * [Run your pipeline](/labs/lab1/lab1.md#12-run-your-pipeline)
   * [Analyze the output](/labs/lab1/lab1.md#13-analyze-the-output)
-  * Use the assistant to add tasks
+  * [Use the assistant to add tasks](/labs/lab1/lab1.md#14-use-the-assistant-to-add-tasks)
   * Extend the pipeline with variables
   * Check the pipeline within the repository
 
