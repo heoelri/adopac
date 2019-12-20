@@ -118,9 +118,52 @@ Here you can now get deeper insights into each indiviual job and their tasks and
 
 ![Job Status Output](img/lab1_job_status_one_line_script.png)
 
+## 1.4 Use the assistant to add tasks
 Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
 
-## 1.4 Use the assistant to add tasks
+* Click "Pipelines" > "Pipelines"
+* Select your "Pipeline"
+* Click on "Edit" (top right)
+
+This will bring us back to the pipeline editor we've seen before.
+
+To get a better understanding of how to work with tasks and how to extend your pipeline, we're now going to add a third "bash" task to our pipeline.
+
+* Search in the "Tasks" section for "bash"
+
+![Tasks - Search for Bash](img/lab1_tasks_search_for_bash.png)
+
+* Click on "Bash"
+* Select Type "Inline"
+* Modify the "Script" section with an individual comment
+
+![Bash Task](img/lab1_bash_task_greetings.png)
+
+* Click on "Add"
+
+We can now see that there was a new section added to our YAML pipeline:
+
+![New Section in Pipeline](img/lab1_new_bash_task_in_editor.png)
+
+* Click on "Save" (top right) to save your changes
+
+We again see that you can now specify a "Commit message" and an optional "extended description". Leave everything as is and "Commit directly to the master branch".
+
+* Click "Save"
+
+Our changes were now saved into our Repository (master branch) and you can now
+
+* Click "Run" (top right) to run the modified pipeline
+
+![Run pipeline](img/lab1_run_pipeline.png)
+
+* Select the "master" branch and click "Run"
+
+You can now (as learned in Lab 1.3) have a deeper look into the job output to make sure that our new bash task works as expected:
+
+![Bash task](img/lab1_bash_task.png)
+
+![Bash task output](img/lab1_bash_task_output.png)
 
 ## 1.5 Extend your pipeline with variables
 
