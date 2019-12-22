@@ -1,7 +1,7 @@
 # Lab 1 - Introduction
 In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure DevOps by building a first, basic Pipeline using the Azure DevOps Website. 
 
-> Goto Azure DevOps, select your Organization and click on your previously created Project. If you have not create an Organization and a Project in Azure DevOps, please start with the preparation tasks in our [Before you start](labs/lab0/before-you-start.md) guide.
+> Goto Azure DevOps, select your Organization and click on your previously created Project. If you have not create an Organization and a Project in Azure DevOps, please start with the preparation tasks in our [Before you start](/labs/lab0/before-you-start.md) guide.
 
 ## 1.1 Create a YAML-Pipeline via GUI
 Before we can start building our first pipeline, we need a Repository in Azure DevOps. 
@@ -197,9 +197,41 @@ Let's now modify our pipeline to leverage the newly created variable.
 * Add a new line after 'Greetings from Seattle!'
 
 ```bash
-echo 'Variable: $(variable1)
+echo 'Variable: $(variable1)'
 ```
+
+Your pipeline should now look like this:
 
 ![Add variable to pipeline](img/lab1_use_variable_in_pipeline.png)
 
+Let's now save and run our pipeline to see the changes in action:
+
+* Click "Save" (top right)
+* "Commit directly to the master branch"
+* Click "Save"
+* Click "Run" (top right)
+* Run pipeline on "master" 
+* Click "Run"
+
+When you're now checking the pipeline outputs, you should see the value of your variable there:
+
+![Variable in pipeline output](img/lab1_variable_in_pipeline_output.png)
+
 ## 1.6 Check the pipeline within your repository
+
+In all our previous steps we've always modified our pipeline in the "Pipelines" > "Pipelines" section using the Pipeline Editor within our browser. But that's not the only way. One of the benefits of using a YAML-based pipeline is that it's stored within an Azure Repo.
+
+Let's now have a look on our Pipeline in our Azure Repo:
+
+* Click on "Repos"
+* Click on "Files"
+
+You should now see a file called "azure-pipelines.yml" in your repositories root directory:
+
+![Pipeline in Repo](img/lab1_pipeline_in_repo.png)
+
+You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor we saw before:
+
+![File Editor](img/lab1_repo_file_editor.png)
+
+Let's now continue with [Lab 2](/labs/lab2/lab2.md) or go back to the [Overview page](/README.md).
