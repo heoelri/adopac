@@ -1,7 +1,7 @@
 # Lab 1 - Introduction
 In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure DevOps by building a first, basic Pipeline using the Azure DevOps Website. 
 
-> Goto Azure DevOps, select your Organization and click on your previously created Project. If you have not create an Organization and a Project in Azure DevOps, please start with the preparation tasks in our [Before you start](labs/lab0/before-you-start.md) guide.
+> Goto Azure DevOps, select your Organization and click on your previously created Project. If you have not create an Organization and a Project in Azure DevOps, please start with the preparation tasks in our [Before you start](/labs/lab0/before-you-start.md) guide.
 
 ## 1.1 Create a YAML-Pipeline via GUI
 Before we can start building our first pipeline, we need a Repository in Azure DevOps. 
@@ -167,4 +167,71 @@ You can now (as learned in Lab 1.3) have a deeper look into the job output to ma
 
 ## 1.5 Extend your pipeline with variables
 
+In our next step, we now want to add some more dynamic to our pipeline, to achieve this we start working with variables.
+
+> **What is a variable?** <br>Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.<br>
+>Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/variables) to learn more.
+
+There are several ways to store and call variables. We're starting with a very simple way. We store our variable in our pipeline.
+
+* Goto "Pipelines" > "Pipelines"
+* Select our "Pipeline"
+* Click on "Edit" to edit the pipeline
+* Click on "Variables" (top right)
+
+![Add new variable](img/lab1_add_new_variable.png)
+
+* Click on "New variable"
+* Specify Name: "variable1"
+* Specify Value: "this comes from a pipeline variable"
+
+![Create a new variable](img/lab1_create_new_variable.png)
+
+You can here also specify a few more things, but for now we leave everything as it is.
+
+* Click on "OK" to save our new variable
+* Click on "Save" to save the modified pipeline variables
+
+Let's now modify our pipeline to leverage the newly created variable.
+
+* Add a new line after 'Greetings from Seattle!'
+
+```bash
+echo 'Variable: $(variable1)'
+```
+
+Your pipeline should now look like this:
+
+![Add variable to pipeline](img/lab1_use_variable_in_pipeline.png)
+
+Let's now save and run our pipeline to see the changes in action:
+
+* Click "Save" (top right)
+* "Commit directly to the master branch"
+* Click "Save"
+* Click "Run" (top right)
+* Run pipeline on "master" 
+* Click "Run"
+
+When you're now checking the pipeline outputs, you should see the value of your variable there:
+
+![Variable in pipeline output](img/lab1_variable_in_pipeline_output.png)
+
 ## 1.6 Check the pipeline within your repository
+
+In all our previous steps we've always modified our pipeline in the "Pipelines" > "Pipelines" section using the Pipeline Editor within our browser. But that's not the only way. One of the benefits of using a YAML-based pipeline is that it's stored within an Azure Repo.
+
+Let's now have a look on our Pipeline in our Azure Repo:
+
+* Click on "Repos"
+* Click on "Files"
+
+You should now see a file called "azure-pipelines.yml" in your repositories root directory:
+
+![Pipeline in Repo](img/lab1_pipeline_in_repo.png)
+
+You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor we saw before:
+
+![File Editor](img/lab1_repo_file_editor.png)
+
+Let's now continue with [Lab 2](/labs/lab2/lab2.md) or go back to the [Overview page](/README.md).
