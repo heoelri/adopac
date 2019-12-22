@@ -200,4 +200,6 @@ Let's now modify our pipeline to leverage the newly created variable.
 echo 'Variable: $(variable1)
 ```
 
+![Add variable to pipeline](img/lab1_use_variable_in_pipeline.png)
+
 ## 1.6 Check the pipeline within your repository
