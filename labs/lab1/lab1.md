@@ -167,4 +167,37 @@ You can now (as learned in Lab 1.3) have a deeper look into the job output to ma
 
 ## 1.5 Extend your pipeline with variables
 
+In our next step, we now want to add some more dynamic to our pipeline, to achieve this we start working with variables.
+
+> **What is a variable?** <br>Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.<br>
+>Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/variables) to learn more.
+
+There are several ways to store and call variables. We're starting with a very simple way. We store our variable in our pipeline.
+
+* Goto "Pipelines" > "Pipelines"
+* Select our "Pipeline"
+* Click on "Edit" to edit the pipeline
+* Click on "Variables" (top right)
+
+![Add new variable](img/lab1_add_new_variable.png)
+
+* Click on "New variable"
+* Specify Name: "variable1"
+* Specify Value: "this comes from a pipeline variable"
+
+![Create a new variable](img/lab1_create_new_variable.png)
+
+You can here also specify a few more things, but for now we leave everything as it is.
+
+* Click on "OK" to save our new variable
+* Click on "Save" to save the modified pipeline variables
+
+Let's now modify our pipeline to leverage the newly created variable.
+
+* Add a new line after 'Greetings from Seattle!'
+
+```bash
+echo 'Variable: $(variable1)
+```
+
 ## 1.6 Check the pipeline within your repository
