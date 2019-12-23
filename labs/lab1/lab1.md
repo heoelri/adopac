@@ -1,10 +1,12 @@
 # Lab 1 - Introduction
-In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure DevOps by building a first, basic Pipeline using the Azure DevOps Website. 
+
+In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure DevOps by building a first, basic Pipeline using the Azure DevOps Website.
 
 > Goto Azure DevOps, select your Organization and click on your previously created Project. If you have not create an Organization and a Project in Azure DevOps, please start with the preparation tasks in our [Before you start](/labs/lab0/before-you-start.md) guide.
 
 ## 1.1 Create a YAML-Pipeline via GUI
-Before we can start building our first pipeline, we need a Repository in Azure DevOps. 
+
+Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
 > **What is Azure Repos?** <br> Azure Repos is a set of version control tools that you can use to manage your code. Whether your software project is large or small, using version control as soon as possible is a good idea. <br>Version control systems are software that help you track changes you make in your code over time. As you edit your code, you tell the version control system to take a snapshot of your files. The version control system saves that snapshot permanently so you can recall it later if you need it. Use version control to save your work and coordinate code changes across your team.<br>Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos?view=azure-devops) to learn more.
 
@@ -19,8 +21,9 @@ Here we're now importing the Lab Repository from GitHub:
 ![Import a Git repository](img/lab1_import_a_git_repository.png)
 
 **Settings:**
+
 * Repository type: Git
-* Clone URL: https://github.com/heoelri/adopac.git
+* Clone URL: `https://github.com/heoelri/adopac.git`
 
 And click on "Import".
 
@@ -40,7 +43,7 @@ In the "Select a repository" section:
 
 In the "Configure your pipeline" section:
 
-* Select "Starter pipeline" 
+* Select "Starter pipeline"
 
 This will now create a new basic YAML-based pipeline for you.
 
@@ -58,8 +61,8 @@ to save the pipeline in your repository and run it. "Save and run" will ask you 
 
 Select the following options:
 
-* Commit message: <your commit message>
-* Optional extended description: <additional description>
+* Commit message: `<your commit message>`
+* Optional extended description: `<additional description>`
 * Commit directly to the master branch
 
 And click on:
@@ -79,6 +82,7 @@ This is the summary of a specific pipeline run. You can come back at any time to
 > To learn more about branches, goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/key-concepts-repos?view=azure-devops#branch).
 
 ## 1.3 Analyze the output
+
 The previously created pipeline was very basic. It does not contain much more than a one-line script that prints out "Hello World" and a multi-line script that prints out two lines with very basic echo commands.
 
 Let us now have a deeper look into the output of your pipeline.
@@ -88,7 +92,7 @@ Let us now have a deeper look into the output of your pipeline.
 
 ![Recently run pipelines](img/lab1_recently_run_pipelines.png)
 
-In this dialog you'll now see all runs of your selected pipeline. 
+In this dialog you'll now see all runs of your selected pipeline.
 
 * Select the last pipeline run
 
@@ -104,9 +108,9 @@ This dialog shows you some important information, like:
 4) Duration
 5) Jobs and their status
 
-To get even more insights about the jobs, 
+To get even more insights about the jobs,
 
-* click on "Job" 
+* click on "Job"
 
 in the "Jobs" section. This will bring you to the job details:
 
@@ -119,6 +123,7 @@ Here you can now get deeper insights into each indiviual job and their tasks and
 ![Job Status Output](img/lab1_job_status_one_line_script.png)
 
 ## 1.4 Use the assistant to add tasks
+
 Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
 
 * Click "Pipelines" > "Pipelines"
@@ -210,7 +215,7 @@ Let's now save and run our pipeline to see the changes in action:
 * "Commit directly to the master branch"
 * Click "Save"
 * Click "Run" (top right)
-* Run pipeline on "master" 
+* Run pipeline on "master"
 * Click "Run"
 
 When you're now checking the pipeline outputs, you should see the value of your variable there:
