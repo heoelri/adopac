@@ -47,7 +47,7 @@ jobs:
     displayName: 'Run a multi-line script'
 
 - job: part2
-  pool: 
+  pool:
     vmImage: 'ubuntu-16.04'
   steps:
   - task: Bash@3
@@ -65,7 +65,7 @@ jobs:
 
 ![Added jobs](img/lab2_pipeline_added_jobs.png)
 
-* Select "Start a pull request" 
+* Select "Start a pull request"
 * Click "Save"
 
 This will now save our changes in a separate branch and create a pull request. That allows us to review our changes.
