@@ -8,7 +8,10 @@ In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure 
 
 Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
-> **What is Azure Repos?** <br> Azure Repos is a set of version control tools that you can use to manage your code. Whether your software project is large or small, using version control as soon as possible is a good idea. <br>Version control systems are software that help you track changes you make in your code over time. As you edit your code, you tell the version control system to take a snapshot of your files. The version control system saves that snapshot permanently so you can recall it later if you need it. Use version control to save your work and coordinate code changes across your team.<br>Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos?view=azure-devops) to learn more.
+> **What is Azure Repos?**  
+> Azure Repos is a set of version control tools that you can use to manage your code. Whether your software project is large or small, using version control as soon as possible is a good idea.  
+> Version control systems are software that help you track changes you make in your code over time. As you edit your code, you tell the version control system to take a snapshot of your files. The version control system saves that snapshot permanently so you can recall it later if you need it. Use version control to save your work and coordinate code changes across your team.  
+> Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos?view=azure-devops) to learn more.
 
 To initialize the default repository we have in our DevOps Project, click on **Repos** -> **Files** and select **Import a repository**.
 
@@ -77,8 +80,8 @@ The pipeline will now start and after a few seconds the output should look like 
 
 This is the summary of a specific pipeline run. You can come back at any time to lookup the status and the output of a specific pipeline run.
 
-> **What is a Branch?**<br>
-> Branches are lightweight references that keep a history of commits and provide a way to isolate changes for a feature or a bug fix from your master branch and other work. Committing changes to a branch doesn't affect other branches. You can push and share branches with other people on your team without having to merge the changes into master.<br>
+> **What is a Branch?**  
+> Branches are lightweight references that keep a history of commits and provide a way to isolate changes for a feature or a bug fix from your master branch and other work. Committing changes to a branch doesn't affect other branches. You can push and share branches with other people on your team without having to merge the changes into master.  
 > To learn more about branches, goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/key-concepts-repos?view=azure-devops#branch).
 
 ## 1.3 Analyze the output
@@ -174,8 +177,9 @@ You can now (as learned in Lab 1.3) have a deeper look into the job output to ma
 
 In our next step, we now want to add some more dynamic to our pipeline, to achieve this we start working with variables.
 
-> **What is a variable?** <br>Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.<br>
->Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/variables) to learn more.
+> **What is a variable?**  
+> Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.  
+> Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/variables) to learn more.
 
 There are several ways to store and call variables. We're starting with a very simple way. We store our variable in our pipeline.
 

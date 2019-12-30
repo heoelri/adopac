@@ -8,9 +8,9 @@ In case you haven't finished [Lab 1](/labs/lab1/lab1.md), please go back and fin
 
 At the end of [Lab 1](/labs/lab1/lab1.md), our pipeline had three tasks. All of them were executed in a single job. But what is a job?
 
-> **What is a job?**<br>
->You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.<br>
->See [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) for more information.
+> **What is a job?**  
+> You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.  
+> See [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) for more information.
 
 In our previous lab we've created a pipeline using the wizard. The wizard creates a pipeline with a single job. Like this:
 
@@ -101,6 +101,64 @@ When you click on one of the jobs, you can see more details about the steps and 
 
 ![Job Details](img/lab2_splitted_pipeline_details2.png)
 
-## 2.2 Splitting our pipeline into Stages
+Jobs are a great feature to run tasks in parallel, in a specific order or on different platforms (Windows, Linux, ..).
+
+Before we now proceed with the next task, let's add a dependency to make sure that part1 is executed before part2 in our pipeline.
+
+## 2.2 Adding dependencies between Jobs
+
+Let's go back to our pipeline and add a dependency:
+
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Click "Edit"
+* Add a new line after line 25
+
+```YAML
+- job: part2
+  dependsOn: part1
+```
+
+> Make sure that dependsOn is aligned with job.
+
+![Dependency between 1 and 2](img/lab2_part1_dependency.png)
+
+* Click "Save"
+* Select "Commit directly to the master branch"
+* Click "Save"
+
+This will trigger a new run of our pipeline.
+
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Select the last run
+
+Here you'll see now, that part1 will be executed first and part2 will start after part1 was successfully finished.
+
+![Part1 first](img/lab2_part1_part2_dependency.png)
+
+## 2.3 Splitting our pipeline into Stages
+
+Now that we had a quick intro into jobs we'll now continiue with stages.
+
+> **What are stages?**  
+> You can organize the jobs in your pipeline into stages. Stages are the major divisions in a pipeline: "build this app", "run these tests", and "deploy to pre-production" are good examples of stages. They are a logical boundary in your pipeline at which you can pause the pipeline and perform various checks.  
+> Every pipeline has at least one stage even if you do not explicitly define it. Stages may be arranged into a dependency graph: "run this stage before that one".  
+> Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/stages) to learn more.
+
+A stage can contain one or more jobs. Here's an example how this could look like:
+
+```YAML
+stages:
+- stage: A
+  jobs:
+  - job: A1
+  - job: A2
+
+- stage: B
+  jobs:
+  - job: B1
+  - job: B2
+```
 
 ## 2.3 Adding Dependencies between Jobs and Stages

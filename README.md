@@ -20,8 +20,9 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
 
 * [Lab 2 - Tasks, Jobs, Stages and Dependencies](/labs/lab2/lab2.md)
   * [Separating Tasks into different Jobs](/labs/lab2/lab2.md#21-separating-tasks-into-different-jobs)
-  * Splitting our pipeline into Stages
-  * Adding Dependencies between Jobs and Stages
+  * [Adding dependencies between Jobs](/labs/lab2/lab2.md#22-adding-dependencies-between-jobs)
+  * [Splitting our pipeline into Stages](/labs/lab2/lab2.md#23-splitting-our-pipeline-into-stages)
+  * Dependencies between Stages
 
 * Lab 3 - Working with (YAML) Templates
   * Templates
