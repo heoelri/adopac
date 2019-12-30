@@ -19,6 +19,10 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Check the pipeline within the repository](/labs/lab1/lab1.md#16-check-the-pipeline-within-your-repository)
 
 * Lab 2 - Tasks, Jobs, Stages and Dependencies
+  * Separating Tasks into different Jobs
+  * Splitting our pipeline into Stages
+  * Adding Dependencies between Jobs and Stages
+
 * Lab 3 - Working with (YAML) Templates
   * Templates
   * Parameters
