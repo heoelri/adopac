@@ -18,8 +18,8 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Extend the pipeline with variables](/labs/lab1/lab1.md#15-extend-your-pipeline-with-variables)
   * [Check the pipeline within the repository](/labs/lab1/lab1.md#16-check-the-pipeline-within-your-repository)
 
-* Lab 2 - Tasks, Jobs, Stages and Dependencies
-  * Separating Tasks into different Jobs
+* [Lab 2 - Tasks, Jobs, Stages and Dependencies](/labs/lab2/lab2.md)
+  * [Separating Tasks into different Jobs](/labs/lab2/lab2.md#21-separating-tasks-into-different-jobs)
   * Splitting our pipeline into Stages
   * Adding Dependencies between Jobs and Stages
 
