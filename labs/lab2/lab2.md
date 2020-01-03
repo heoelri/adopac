@@ -161,4 +161,179 @@ stages:
   - job: B2
 ```
 
+Let's now implement stages in our pipeline.
+
+* Goto "Pipelines" > "Pipelines"
+* Select our "MyDevOpsProject" pipeline
+* Click "Edit"
+
+Now we're replacing the whole pipeline with the following:
+
+```YAML
+trigger:
+- master
+
+stages:
+- stage: stage1
+  jobs:
+  - job: stage1part1
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - script: echo Hello, world!
+      displayName: 'Run a one-line script'
+  - job: stage1part2
+    pool:
+      vmImage: 'ubuntu-16.04'
+      steps:
+      - script: |
+          echo Add other tasks to build, test, and deploy your project.
+          echo See https://aka.ms/yaml
+        displayName: 'Run a multi-line script'
+
+- stage: stage2
+  jobs:
+  - job: stage2part1
+    pool:
+      vmImage: 'ubuntu-16.04'
+    steps:
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          echo 'Greetings from Seattle!'
+          echo 'Variable: $(variable1)'
+```
+
+* Click "Save"
+* Select "Commit directly to the master branch"
+* Click "Save"
+
+This will now trigger our pipeline.
+
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Select the last run
+
+You'll directly see the first difference. Our pipeline has now two stages:
+
+![Pipeline run with stages](img/lab2_pipeline_run_with_stages.png)
+
+The result will look like this:
+
+![Schema Stages and Jobs](img/lab2_schema_stages_and_jobs.png)
+
+We now have a pipeline that contains two stages:
+
+* Stage 1
+* Stage 2
+
+And both stages contain one or more jobs. But there are no dependencies between our jobs and stages. Our jobs can run in parallel and without a specific order and the stages will be executed based on the order they're defined in the YAML file.
+
+Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/stages) to learn more about stages.
+
+In our next task we're going to add dependencies to our stages.
+
 ## 2.3 Adding Dependencies between Jobs and Stages
+
+In our previous task we've mentioned that stages will be, by default, executed in the order they're defined in the YAML file.
+
+But there are more ways to control their behavior. In this task we're going to add dependencies to our stages.
+
+Let's go back to our pipeline:
+
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Click "Edit"
+* Goto **Line 28**
+* Add a `dependsOn`
+
+```YAML
+- stage: stage2
+  dependsOn: stage1
+  jobs:
+```
+
+This will define what's already defined due to the order of our stages. Stage2 will now depend on Stage1 and will not be executed before Stage1 was successfully finished.
+
+To make it a bit more interesting, let's now add a third stage that depends on Stage2.
+
+* Goto the end of our pipeline
+* Add the following code
+
+```YAML
+- stage: stage3
+  dependsOn: stage2
+  jobs:
+  - job: stage3job1
+```
+
+And let's also add a forth stage that depends on stage1:
+
+```YAML
+- stage: stage4
+  dependsOn: stage1
+  jobs: 
+  - job: stage4job1
+```
+
+* Click "Save"
+* Select "Commit directly to the master branch"
+* Click "Save"
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Select the last run
+
+Our pipeline looks slightly different now:
+
+![Four Stage Pipeline](img/lab2_four_stage_pipeline.png)
+
+As you can see in our example, our pipelines can become as complex as you want. In case simple dependencies are not enough there are also other options to run stages in parallel or to depend on multiple stages.
+
+If you want to run a stage in parallel you can specify this directly:
+
+```YAML
+- stage: TestStage
+  dependsOn: []    # this removes the implicit dependency on previous stage and causes this to run in parallel
+  jobs:
+  - job:
+    ...
+```
+
+If you want your pipeline to depend on multiple stages, you can specify them as a list:
+
+```YAML
+- stage: DeployEurope
+  dependsOn:         # this stage runs after DeployUS1 and DeployUS2
+  - DeployUS1
+  - DeployUS2
+```
+
+Let's do a last change in our pipline to close the loop and to bring the stages back together as part of an additional, last stage:
+
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Click "Edit"
+* Goto the end of our pipeline
+* Add the following code
+
+```YAML
+- stage: stage5
+  dependsOn:
+  - stage4
+  - stage3
+  jobs:
+  - job: stage5job1
+```
+
+* Click "Save"
+* Select "Commit directly to the master branch"
+* Click "Save"
+* Goto "Pipelines" > "Pipelines"
+* Select our pipeline
+* Select the last run
+
+![Five Stages Closed Loop](img/lab2_five_stages_closed_loop.png)
+
+Our last stage **stage5** will be executed after **stage3** and **stage4** were executed successfully.
