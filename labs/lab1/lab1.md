@@ -62,6 +62,8 @@ This will now create a new basic YAML-based pipeline for you.
 
 ![Review your pipeline](img/lab1_review_your_pipeline.png)
 
+Lets explain this section a little more especially the format.
+
 ## 1.2 Run your pipeline
 
 Now that we have created our very first "Starter pipeline"
