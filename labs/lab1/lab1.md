@@ -187,7 +187,7 @@ You can now (as learned in Lab 1.3) have a deeper look into the job output to ma
 
 ## 1.5 Extend your pipeline with variables
 
-In our next step, we now want to add some more dynamic to our pipeline, to achieve this we start working with variables.
+In our next step, we now want to add some more dynamic 'something missing here?' to our pipeline, to achieve this we start working with variables.
 
 > **What is a variable?**  
 > Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.  
