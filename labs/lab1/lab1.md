@@ -6,6 +6,12 @@ In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure 
 
 ## 1.1 Create a YAML-Pipeline via GUI
 
+At the time of writing this lab guide 'Multi-stage pipelines' is still a preview feature which is not enabled by default. In order to enable the same follow the below steps.
+
+On the top right corner of your Azure DevOps portal click on `Settings` and then `Preview Features`
+
+
+
 Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
 > **What is Azure Repos?**  
