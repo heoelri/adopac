@@ -9,10 +9,10 @@ In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure 
 At the time of writing this lab guide 'Multi-stage pipelines' is still a preview feature which is not enabled by default. In order to enable the same follow the below steps.
 
 On the top right corner of your Azure DevOps portal click on `Settings` and then `Preview Features`
-<Screen shot to be pasted here>
+Screen shot to be pasted here
 
 In the preview features pane turn 'on' `Multi-stage pipelines` for you as a user.
-<Screen shot to be pasted here>
+Screen shot to be pasted here
 
 Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
