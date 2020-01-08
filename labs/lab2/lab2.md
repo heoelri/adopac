@@ -112,7 +112,7 @@ Let's go back to our pipeline and add a dependency:
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline
 * Click "Edit"
-* Add a new line after line 25
+* Add a new line after line 25 - 'this line number was different for me??'
 
 ```YAML
 - job: part2
