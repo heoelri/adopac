@@ -1,10 +1,22 @@
 # Lab 1 - Introduction
 
-In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure DevOps by building a first, basic Pipeline using the Azure DevOps Website.
+In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure DevOps by building a first, basic Pipeline using the Azure DevOps Portal.
 
 > Goto Azure DevOps, select your Organization and click on your previously created Project. If you have not create an Organization and a Project in Azure DevOps, please start with the preparation tasks in our [Before you start](/labs/lab0/before-you-start.md) guide.
 
 ## 1.1 Create a YAML-Pipeline via GUI
+
+At the time of writing this lab guide 'Multi-stage pipelines' is still a preview feature which is not enabled by default. In order to enable the same follow the below steps.
+
+On the top right corner of your Azure DevOps portal click on `Settings` and then `Preview Features`
+
+![enable preview features](img/lab1_enable_preview_features.png)
+
+![enable preview features 2](img/lab1_enable_preview_features_2.png)
+
+In the preview features pane turn 'on' `Multi-stage pipelines` for you as a user.
+
+![enable preview feautures 3](img/lab1_enable_preview_features_3.png)
 
 Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
@@ -51,6 +63,15 @@ In the "Configure your pipeline" section:
 This will now create a new basic YAML-based pipeline for you.
 
 ![Review your pipeline](img/lab1_review_your_pipeline.png)
+
+What you can see above is a very simple pipeline that contains only a few pieces. Let's quickly go through the items we can see there:
+
+* **trigger** define which changes or actions will trigger our current pipeline. We will cover triggers in more detail in one of the next labs.
+* **pool** defines the setup of our build agent that's used to run our pipeline. You can configure things like managed or unmanaged agents, the operating system and other things.
+* The **steps** section contains one or more tasks.
+* **script** is an alias for a script task that can execute bash commands and scripts.
+
+Our complete pipeline is defined in YAML. To learn the basics of YAML, see [Learn YAML in Y Minutes](https://learnxinyminutes.com/docs/yaml/). Azure Pipelines doesn't support all YAML features. Unsupported features include anchors, complex keys, and sets.
 
 ## 1.2 Run your pipeline
 
@@ -175,7 +196,7 @@ You can now (as learned in Lab 1.3) have a deeper look into the job output to ma
 
 ## 1.5 Extend your pipeline with variables
 
-In our next step, we now want to add some more dynamic to our pipeline, to achieve this we start working with variables.
+In our next step, we now want to make our pipeline a bit more dynamic and flexible, to achieve this we start working with variables instead of using hardcoded values.
 
 > **What is a variable?**  
 > Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.  
