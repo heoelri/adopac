@@ -64,7 +64,14 @@ This will now create a new basic YAML-based pipeline for you.
 
 ![Review your pipeline](img/lab1_review_your_pipeline.png)
 
-Lets explain this section a little more especially the format.
+What you can see above is a very simple pipeline that contains only a few pieces. Let's quickly go through the items we can see there:
+
+* **trigger** define which changes or actions will trigger our current pipeline. We will cover triggers in more detail in one of the next labs.
+* **pool** defines the setup of our build agent that's used to run our pipeline. You can configure things like managed or unmanaged agents, the operating system and other things.
+* The **steps** section contains one or more tasks.
+* **script** is an alias for a script task that can execute bash commands and scripts.
+
+Our complete pipeline is defined in YAML. To learn the basics of YAML, see [Learn YAML in Y Minutes](https://learnxinyminutes.com/docs/yaml/). Azure Pipelines doesn't support all YAML features. Unsupported features include anchors, complex keys, and sets.
 
 ## 1.2 Run your pipeline
 
@@ -189,7 +196,7 @@ You can now (as learned in Lab 1.3) have a deeper look into the job output to ma
 
 ## 1.5 Extend your pipeline with variables
 
-In our next step, we now want to add some more dynamic 'something missing here?' to our pipeline, to achieve this we start working with variables.
+In our next step, we now want to make our pipeline a bit more dynamic and flexible, to achieve this we start working with variables instead of using hardcoded values.
 
 > **What is a variable?**  
 > Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.  
