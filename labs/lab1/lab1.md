@@ -10,11 +10,13 @@ At the time of writing this lab guide 'Multi-stage pipelines' is still a preview
 
 On the top right corner of your Azure DevOps portal click on `Settings` and then `Preview Features`
 
-Screen shot to be pasted here
+![enable preview features](img/lab1_enable_preview_features.png)
+
+![enable preview features 2](img/lab1_enable_preview_features_2.png)
 
 In the preview features pane turn 'on' `Multi-stage pipelines` for you as a user.
 
-Screen shot to be pasted here
+![enable preview feautures 3](img/lab1_enable_preview_features_3.png)
 
 Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
