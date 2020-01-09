@@ -43,6 +43,12 @@ Now that we've created a new pipeline and renamed it successfully, let's now ref
 - template: labs/lab3/examples/lab3-steps.template.yaml
 ```
 
+After adding this line to the end of our new pipeline:
+
+* Click "Save and run"
+* Select "Commit directly to the master branch"
+* Click "Save and run"
+
 ## 3.2 Reusing stages with templates
 
 ## 3.3 Parameterize templates

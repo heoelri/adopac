@@ -1,8 +1,9 @@
 steps:
 - bash: |
-    apt-get install cowsay fortune
-  displayName: 'Install pre-requisites'
+    # insert content here
+  displayName: 'Download pre-requisites'
 
 - bash: | 
-    fortune | cowsay
+    # insert content here
   displayName: 'Message of the Day'
+  enabled: false
