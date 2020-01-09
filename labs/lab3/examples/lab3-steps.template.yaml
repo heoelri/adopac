@@ -1,0 +1,10 @@
+steps:
+- bash: |
+    apt-get install cowsay fortune
+  displayName: 'Install pre-requisites'
+
+- bash: | 
+    fortune | cowsay
+  displayName: 'Message of the Day'
+
+  
