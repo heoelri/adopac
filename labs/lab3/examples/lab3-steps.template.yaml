@@ -6,5 +6,3 @@ steps:
 - bash: | 
     fortune | cowsay
   displayName: 'Message of the Day'
-
-  

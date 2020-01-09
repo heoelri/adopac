@@ -25,8 +25,9 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Dependencies between Stages](/labs/lab2/lab2.md#23-adding-dependencies-between-jobs-and-stages)
 
 * [Lab 3 - Working with (YAML) Templates](labs/lab3/lab3.md)
-  * Templates
-  * Parameters
+  * [Load steps from templates](/labs/lab3/lab3.md#31-load-steps-from-templates)
+  * [Reusing stages with templates](/labs/lab3/lab3.md#32-reusing-stages-with-templates)
+  * [Parameterize templates](/labs/lab3/lab3.md#33-parameterize-templates)
   
 * Lab 4 - Triggers
   * Branches
