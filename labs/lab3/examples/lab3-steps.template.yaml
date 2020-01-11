@@ -1,9 +1,14 @@
 steps:
 - bash: |
-    # insert content here
-  displayName: 'Download pre-requisites'
+    docker pull vanessa/cowsay
+  displayName: 'Docker pull image'
 
 - bash: | 
-    # insert content here
-  displayName: 'Message of the Day'
-  enabled: false
+    docker run vanessa/cowsay run cowthink
+  displayName: 'Docker run image with cowthink'
+  enabled: true
+
+- bash: | 
+    docker run vanessa/cowsay run animal vader-koala
+  displayName: 'Docker run image with animal'
+  enabled: true
