@@ -21,7 +21,9 @@ And click on "Continue". Now we have a new Organization in Azure DevOps and we c
 
 ### Create a new ADO Project
 
-Within your new ADO organization you can create one or more so called "Projects". Projects can have different levels of visibility:
+Within your new ADO organization you can create one or more so called "Projects". 
+
+Projects can have different levels of visibility:
 
 * Public - Anyone on the internet can view the project.
 * Enterprise - Member of your enterprise can view the project.
