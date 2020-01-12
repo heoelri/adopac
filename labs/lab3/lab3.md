@@ -156,4 +156,6 @@ The pipeline should now start to run and you will see two stages (Build Stage Li
 
 ![multistage output](img/lab3_multistage_pipeline_output.png)
 
+**Build Stage Linux** is downloading and executing a Docker container image on a Linux-based Build Agent, **Build Stage Windows** is doing exactly the same on a Windows-based one. This is a simple example but can be used for example to test specific things on different platforms.
+
 ## 3.3 Parameterize templates
