@@ -158,4 +158,6 @@ The pipeline should now start to run and you will see two stages (Build Stage Li
 
 **Build Stage Linux** is downloading and executing a Docker container image on a Linux-based Build Agent, **Build Stage Windows** is doing exactly the same on a Windows-based one. This is a simple example but can be used for example to test specific things on different platforms.
 
+> **Note!** Our pipeline is expected to fail as the container image we are using will not work on our Windows-based Build Agent.
+
 ## 3.3 Parameterize templates
