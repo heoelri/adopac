@@ -1,0 +1,10 @@
+parameters:
+  name: ''
+  pool: ''
+
+jobs:
+- job: ${{ parameters.name }}
+  pool: ${{ parameters.pool }}
+  steps:
+  - script: echo "Job ${{ parameters.name }} running on ${{ parameters.pool.vmImage }}"
+  - script: docker run vanessa/cowsay run cowthink

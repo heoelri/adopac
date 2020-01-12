@@ -1,0 +1,14 @@
+steps:
+- bash: |
+    docker pull vanessa/cowsay
+  displayName: 'Docker pull image'
+
+- bash: | 
+    docker run vanessa/cowsay run cowthink
+  displayName: 'Docker run image with cowthink'
+  enabled: true
+
+- bash: | 
+    docker run vanessa/cowsay run animal vader-koala
+  displayName: 'Docker run image with animal'
+  enabled: true

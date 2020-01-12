@@ -338,4 +338,4 @@ Let's do a last change in our pipline to close the loop and to bring the stages 
 
 Our last stage **stage5** will be executed after **stage3** and **stage4** were executed successfully.
 
-Let's now go back to the [Overview](/README.md) or continue with [Lab 3](labs/lab3/lab3.md).
+Let's now go back to the [Overview](/README.md) or continue with [Lab 3](/labs/lab3/lab3.md).

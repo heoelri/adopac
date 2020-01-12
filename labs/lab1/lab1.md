@@ -42,6 +42,8 @@ Here we're now importing the Lab Repository from GitHub:
 
 And click on "Import".
 
+![Import Repository](img/lab1_import_repository.png)
+
 This will now import the whole Repository from GitHub into your new Azure DevOps Repository.
 
 * Click on "Pipelines"
@@ -158,6 +160,7 @@ This will bring us back to the pipeline editor we've seen before.
 
 To get a better understanding of how to work with tasks and how to extend your pipeline, we're now going to add a third "bash" task to our pipeline.
 
+* Put your cursor at the end of the pipeline
 * Search in the "Tasks" section for "bash"
 
 ![Tasks - Search for Bash](img/lab1_tasks_search_for_bash.png)
