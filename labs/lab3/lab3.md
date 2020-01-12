@@ -101,4 +101,59 @@ Besides the output itself you'll see here that there is no difference between pi
 
 ## 3.2 Reusing stages with templates
 
+In our next task we are now going to build a slightly more advanced pipeline with multiple stages using the same template.
+
+* Goto Pipelines > Pipelines
+* Click "New pipeline" (top right)
+* Select "Azure Repos Git (YAML)"
+* Select our "MyDevOpsProject"
+* Select "Existing Azure Pipelines YAML file"
+* Select the *master* branch
+
+In the *Path* drop down select (or type):
+
+`/labs/lab3/examples/lab3-multistage.pipeline.yaml`
+
+* Click "Continue"
+
+In the **Review your pipeline YAML** dialog you will now see a pipeline that contains two stages:
+
+![Review multi-stage pipeline](img/lab3_review_multistage_pipeline.png)
+
+In its current state the pipeline contains only structure and no useful tasks. To change that we are now going to add code to load a template in each of our stages.
+
+Extend the 'linux' stage with the following code:
+
+```YAML
+  jobs:
+  - template: lab3-multistage-jobs.template.yaml
+    parameters:
+      name: 'Linux'
+      pool:
+        vmImage: 'ubuntu-16.04'
+```
+
+And the 'windows' stage with this:
+
+```YAML
+  jobs:
+  - template: lab3-multistage-jobs.template.yaml
+    parameters:
+      name: 'Windows'
+      pool:
+        vmImage: 'vs2017-win2016'
+```
+
+Your pipeline should now look like this:
+
+![multistage pipeline with stages](img/lab3_multistage_pipeline_with_templates.png)
+
+* Click "Save and run"
+* Select "Commit directly to the master branch"
+* Click "Save and run"
+
+The pipeline should now start to run and you will see two stages (Build Stage Linux and Build Stage Windows) that use exactly the same template with different parameters:
+
+![multistage output](img/lab3_multistage_pipeline_output.png)
+
 ## 3.3 Parameterize templates

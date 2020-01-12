@@ -1,0 +1,14 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+stages:
+- stage: linux
+  displayName: 'Build Stage Linux'
+  dependsOn: []
+
+- stage: windows
+  displayName: 'Build Stage Windows'
+  dependsOn: []
