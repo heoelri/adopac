@@ -27,14 +27,18 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
 * [Lab 3 - Working with (YAML) Templates](labs/lab3/lab3.md)
   * [Load steps from templates](/labs/lab3/lab3.md#31-load-steps-from-templates)
   * [Reusing stages with templates](/labs/lab3/lab3.md#32-reusing-stages-with-templates)
-  * [Parameterize templates](/labs/lab3/lab3.md#33-parameterize-templates)
+  * [Conditions](/labs/lab3/lab3.md#33-conditions)
   
 * Lab 4 - Triggers
   * Branches
   * Path
   * Container
 
-* Lab 5 - CI and CD
+* Lab 5 - Versioning, Branches and Conditions
+  * Interact with Branches
+  * Pipeline versioning
+
+* Lab 6 - CI and CD
 * ...
 
 ## License
