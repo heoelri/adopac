@@ -29,7 +29,7 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Reusing stages with templates](/labs/lab3/lab3.md#32-reusing-stages-with-templates)
   * [Conditions](/labs/lab3/lab3.md#33-conditions)
   
-* Lab 4 - Triggers
+* [Lab 4 - Triggers](/labs/lab4/lab4.md)
   * Branches
   * Path
   * Container

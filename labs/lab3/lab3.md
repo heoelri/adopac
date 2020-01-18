@@ -242,3 +242,5 @@ To achieve this we're going to add a condition (and a displayname for the task t
 In the job details you'll now see that our stage that previously failed is now not executed as part of the windows stage anymore. Our condition works.
 
 ![skipped task in pipeline](img/lab3_skipped_task_in_pipeline.png)
+
+Let's now go back to the [Overview](/README.md) or continue with [Lab 4](/labs/lab4/lab4.md).
