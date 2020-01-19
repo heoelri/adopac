@@ -243,4 +243,44 @@ In the job details you'll now see that our stage that previously failed is now n
 
 ![skipped task in pipeline](img/lab3_skipped_task_in_pipeline.png)
 
+## 3.4 Skipping Branches
+
+Sometimes it might be required to run only a subset of all stages within a pipeline. To achieve this, it's not needed to modify the pipeline itself. As part of the manual pipeline execution you can specify which stages should be executed.
+
+* Goto Pipelines > Pipelines
+* Click on our "Multi-stage pipeline with conditions"
+* Click on "Run pipeline"
+
+![Run pipeline](img/lab3_run_pipeline.png)
+
+This will open the "Run pipeline" dialog
+
+![run pipeline dialog](img/lab3_run_pipeline_dialog.png)
+
+And here, in the "Run pipeline" dialog there's an option to modify the "Stages to run".
+
+* Click on "Stages to run"
+
+In the next dialog you can now see all stages and you've the option to check or uncheck them to select if they'll be executed or skipped.
+
+![stages to run](img/lab3_stages_to_run.png)
+
+Let's now try to skip the "Build Stage Windows" stage.
+
+* Un-check the stage "Build Stage Windows"
+
+![unchecked build stage](img/lab3_uncheck_build_stage.png)
+
+* Click on "Use selected stages"
+
+The next dialog will now show you all selected stages (in our case only one):
+
+![selected stages](img/lab3_selected_stages_build_dialog.png)
+
+* Click on "Run" to start the pipeline
+
+The pipeline job details will now show us that the previously unchecked pipeline step "Build Stage Windows" wasn't executed. It was skipped:
+
+![summary with skipped stage](img/lab3_pipeline_summary_skipped_stage.png)
+
 Let's now go back to the [Overview](/README.md) or continue with [Lab 4](/labs/lab4/lab4.md).
