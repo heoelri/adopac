@@ -158,6 +158,129 @@ The pipeline should now start to run and you will see two stages (Build Stage Li
 
 **Build Stage Linux** is downloading and executing a Docker container image on a Linux-based Build Agent, **Build Stage Windows** is doing exactly the same on a Windows-based one. This is a simple example but can be used for example to test specific things on different platforms.
 
-> **Note!** Our pipeline is expected to fail as the container image we are using will not work on our Windows-based Build Agent.
+> **Note!** Our pipeline is expected to fail as the container image we are using will not work on our Windows-based Build Agent. We'll address that in the next task of our lab.
 
-## 3.3 Parameterize templates
+## 3.3 Conditions
+
+What we saw in the previous task is, that it might be sometimes required to not run all steps within a pipeline or its templates in every stage. Sometimes we need more logic and flexbility.
+
+But how can we control that? This is where conditions come to play.
+
+Conditions can be applied to stages, jobs and individual tasks. Let's now add a condition that our build task is only executed when the build agent runs on linux.
+
+* Goto Pipelines > Pipelines
+* Select the new MyDevOpsProject (1) pipeline
+
+> This should be the pipeline we have created in previous task.
+
+Before we proceed let's give it a better name.
+
+* Click on the following button:
+
+![More Options](img/lab3_more_options_button.png)
+
+* Select "Rename/move"
+* Call it "Multi-stage pipeline with conditions"
+
+![rename pipeline](img/lab3_rename_to_multistage_with_conditions.png)
+
+* Click "Save"
+
+> Now that our pipeline was renamed let's proceed with editing it.
+
+* Click "Edit"
+
+In our editor we can see that we can only modify the pipeline itself but not it's templates. To edit them we've to go to our repository and modify the files directly.
+
+But before we proceed to our template, let's take a deeper look into the pipeline editor and what we can see here:
+
+![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths.png)
+
+1) Shows us the branch we're working in here it's **master**
+2) Is our repository **MyDevOpsProject**
+3) Is the path to our pipeline file in our repository
+4) Is the name of our template file we want to modify next
+
+> The template uses a relative path from the position of our pipeline file. In our case it's stored in the same folder in our repository.
+
+Let's start..
+
+* Goto Repos > Files
+* Make sure that you're in the right repository and branch
+* Goto `labs > lab3 > examples`
+* Click on `lab3-multistage-jobs.template.yaml`
+* Click on Edit
+
+We now want to modify the following task in our template:
+
+```YAML
+  - script: docker run vanessa/cowsay run cowthink
+```
+
+This is the command that failed in our first run. We now want this task only to run in the linux stage. Not in the windows stage.
+
+To achieve this we're going to add a condition (and a displayname for the task to make it easier to identify it).
+
+```YAML
+  - script: |
+      docker run vanessa/cowsay run cowthink
+    displayName: 'Docker run command'
+    condition: eq(variables['System.StageName'], 'linux')
+```
+
+> If you're looking for a specific builtin or predefined variable, please have a look on the list of [predefined variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#pipeline-variables) on docs.microsoft.com.
+
+* Click on "Commit"
+* Save our changes to the "master" branch
+* Click on "Commit" again
+
+* Go back to Pipelines > Pipelines
+* Select our "Multi-stage pipeline with conditions"
+* Select the last job (it's perhaps still running)
+* Click on one of the stages
+
+In the job details you'll now see that our stage that previously failed is now not executed as part of the windows stage anymore. Our condition works.
+
+![skipped task in pipeline](img/lab3_skipped_task_in_pipeline.png)
+
+## 3.4 Skipping Branches
+
+Sometimes it might be required to run only a subset of all stages within a pipeline. To achieve this, it's not needed to modify the pipeline itself. As part of the manual pipeline execution you can specify which stages should be executed.
+
+* Goto Pipelines > Pipelines
+* Click on our "Multi-stage pipeline with conditions"
+* Click on "Run pipeline"
+
+![Run pipeline](img/lab3_run_pipeline.png)
+
+This will open the "Run pipeline" dialog
+
+![run pipeline dialog](img/lab3_run_pipeline_dialog.png)
+
+And here, in the "Run pipeline" dialog there's an option to modify the "Stages to run".
+
+* Click on "Stages to run"
+
+In the next dialog you can now see all stages and you've the option to check or uncheck them to select if they'll be executed or skipped.
+
+![stages to run](img/lab3_stages_to_run.png)
+
+Let's now try to skip the "Build Stage Windows" stage.
+
+* Un-check the stage "Build Stage Windows"
+
+![unchecked build stage](img/lab3_uncheck_build_stage.png)
+
+* Click on "Use selected stages"
+
+The next dialog will now show you all selected stages (in our case only one):
+
+![selected stages](img/lab3_selected_stages_build_dialog.png)
+
+* Click on "Run" to start the pipeline
+
+The pipeline job details will now show us that the previously unchecked pipeline step "Build Stage Windows" wasn't executed. It was skipped:
+
+![summary with skipped stage](img/lab3_pipeline_summary_skipped_stage.png)
+
+Let's now go back to the [Overview](/README.md) or continue with [Lab 4](/labs/lab4/lab4.md).
