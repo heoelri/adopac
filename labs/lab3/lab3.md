@@ -27,7 +27,7 @@ This will now create new new "Starter pipeline" in our repository.
 
 ![New Starter Pipeline](img/lab3_new_starter_pipeline.png)
 
-Let us give our new pipeline a name that is a bit better than the default `azure-pipelines-1-yml`.
+Let us give our new pipeline a name that is a bit better than the default azure-pipelines-1-yml.
 
 * Click on the filename
 
@@ -99,7 +99,7 @@ Besides the output itself you'll see here that there is no difference between pi
 1) Is the part in our main pipeline file.
 2) Are the steps coming from the template.
 
-## 3.2 Reusing stages with templates
+## 3.2 Reusing templates in different stages.
 
 In our next task we are now going to build a slightly more advanced pipeline with multiple stages using the same template.
 
