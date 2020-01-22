@@ -165,9 +165,4 @@ Now lets put this logic into action. We are going to edit the sampe-file.md whic
 * Type some sample text and click "commit" twice.
 * Notice how the "Working with triggers" pipeline gets triggered.
 
-
-# 4.3 Working with triggers and PR
-
-**Scenario**
-
-***I would like to trigger my pipeline only when a PR is targeted to releases/* branch of the repository.**
+This concludes Lab 4.
