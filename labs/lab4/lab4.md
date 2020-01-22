@@ -4,13 +4,6 @@ Any DevOps lifecycle comprises of bunch of process that run at different stages 
 
 Triggers are events on which you can start your pipeline run automatically. You can enable triggers on your pipeline by subscribing to both internal and external events. An event can be completion of a process, availability of a resource, status update from a service or a timed event.
 
-**Scenarios**
-
-* I would like to trigger my pipeline when an artifact is published by ‘Helm-CI’ pipeline that ran on releases/* branch.
-* I would like to trigger my pipeline only when a new commit goes into the file path “Repository/Web/*”.
-* I would like to trigger my pipeline only when a PR is targeted to releases/* branch of the repository.
-
-
 Lets have a look at how we would work with triggers.
 
 # 4. 1 Working with triggers and branches
@@ -126,4 +119,55 @@ Notice how only one of the pipelines gets triggered based on our inlcusion and e
 
 # 4.2 Working with triggers and path
 
+**Scenario**
+
+***I would like to trigger my pipeline only when a new commit goes into the file path “Repository/Web/*”.**
+
+In this exercise we will see how we can make use of path based triggers to include/exclude certain files from triigering the pipeline. For example when you have docs in wiki, you would need to trigger the pipeline for changes you make to the document files.
+
+Lets see this in action
+
+First lets modify the YAML pipeline.
+
+* Click Pipelines>Pipelines
+* Select the "working with triggers" pipeline and click "Edit"
+* Replace the "trigger" section with the below code
+
+```
+trigger:
+  branches:
+    include:
+    - rathishr/*
+    exclude:
+    - master
+    - heyko/*
+  paths:
+    include:
+    - docs/*
+    exclude:
+    - docs/sample-file.md
+```
+Your pipeline should like below
+
+![](img/lab4_2_edit_yaml.PNG)
+
+* Click "Save" twice to commit to feature branch.
+
+Now lets put this logic into action. We are going to edit the sampe-file.md which should not trigger the pipeline based on our path based exclusion.
+
+* Click on Repos> Files
+* Make sure you are in the right branch which in our case is "rathishr/feature1".
+* Create a new folder called "docs" and a file called "sample-file.md"
+* Type some sample text and click on "Commit" twice.
+* Swith to pipleines view and notice that the "Working with triggers" pipeline does not get triggered based on our exclusion.
+* Go back to Repos> Files and ensure the right branch (rathishr/feature1) is selected.
+* Create a new file under the docs folder, for example "sample-file02.md". Click "Create"
+* Type some sample text and click "commit" twice.
+* Notice how the "Working with triggers" pipeline gets triggered.
+
+
 # 4.3 Working with triggers and PR
+
+**Scenario**
+
+***I would like to trigger my pipeline only when a PR is targeted to releases/* branch of the repository.**
