@@ -17,7 +17,7 @@ Lets have a look at how we would work with triggers.
 
 **Scenario**
 
-*I would like to trigger my pipeline when a commit is made to a certain branch.
+***I would like to trigger my pipeline when a commit is made to a certain branch.**
 
 First lets create a couple of branches to work with.
 
@@ -29,22 +29,23 @@ First lets create a couple of branches to work with.
 
 ![](img/lab4_create_branches.PNG)
 
-Once done your brnaches will look similar to the below
+Once done your branches will look similar to the below
 
 ![](img/lab4_allbranches_view.PNG)
 
-Next lets create a new pipeline
+Next lets create a new pipeline, this time from the repos.
 
-* Goto Pipelines > Pipelines
-* Click "New pipeline"
-* Select "Azure Repos Git (YAML)"
-* Select our repository
-* Click "Starter pipeline"
+* Goto Repos > Files
+* Select one of the feature branch you created above for example **rathishr/feature1**
 
-Next lets specify some triggers with inclusion and exclusion for branches. 
-*This is really helpful when doing dev/test where you would just want to your commits to trigger certain pipeline and leave the rest as is.*
+![](img/lab4_create_new_yml_file.png)
 
-* Replace the Starter pipeline contents using the below.
+* Give the file a suitable name like "working-with-triggers.yml"
+
+![](img/lab4_new_pipeline_name.png)
+
+* Click "Create"
+* Copy paste the below content.
 
 ```
 # Starter pipeline
@@ -72,6 +73,21 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
   ```
+  * Click "Commit" twice.
+  * Click Pipelines>Pipelines
+  * Click New Pipeline
+  * Select Azure Repos Git (YAML)
+  * Select your repository
+  * Select "Existing Azure Pipelines YAML file"
+  * Select feature branch "rathishr/feature1" and path as "/working-with-triggers.yml"
+  
+  ![](img/lab4_select_feature_branch.PNG)
+  
+  * Click "Continue"
+  * We will not run the pipeline yet, instead from the drop click "Save"
+  
+  ![]/(img/lab4_save_pipeline01.png)
+  
 Notice carefully that you are creating a trigger based on  changes made to a branch and inlcuding one branch and excluding two others.
 
 * At this point we are only going to save this pipeline and run later. Hence click on the drop down "Save and Run" and Click on "Save"
