@@ -228,7 +228,7 @@ There are several ways to store and call variables. We're starting with a very s
 
 ![Create a new variable](img/lab1_create_new_variable.png)
 
-You can here also specify a few more things, but for now we leave everything as it is.
+Here you can also specify a few more things, but for now we leave everything as it is.
 
 * Click on "OK" to save our new variable
 * Click on "Save" to save the modified pipeline variables
@@ -271,7 +271,7 @@ You should now see a file called "azure-pipelines.yml" in your repositories root
 
 ![Pipeline in Repo](img/lab1_pipeline_in_repo.png)
 
-You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor we saw before:
+You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor like adding tasks for example that we saw before:
 
 ![File Editor](img/lab1_repo_file_editor.png)
 
