@@ -180,7 +180,8 @@ To get a better understanding of how to work with tasks and how to extend your p
 * Click on "Add"
 
 We can now see that there was a new section added to our YAML pipeline:
-*Note: You may experience indentation errors demarked by red and yellow lines. Use the backspace option to correct the identation until the red and yellow lines are gone.*
+
+*Note: You may experience indentation errors demarked by red and yellow lines. Use the backspace option to correct the indentation until the red and yellow lines are gone.*
 
 ![New Section in Pipeline](img/lab1_new_bash_task_in_editor.png)
 
