@@ -46,6 +46,8 @@ And click on "Import".
 
 This will now import the whole Repository from GitHub into your new Azure DevOps Repository.
 
+Lets now get started with creating our starter pipeline.
+
 * Click on "Pipelines"
 * Click on "Pipelines"
 * Click on "Create Pipeline"
