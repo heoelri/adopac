@@ -149,7 +149,7 @@ trigger:
 ```
 Your pipeline should like below
 
-![](img/lab4_2_edit_yaml.PNG)
+![](img/lab42_sample_file.PNG)
 
 * Click "Save" twice to commit to feature branch.
 
