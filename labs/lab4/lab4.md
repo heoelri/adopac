@@ -95,7 +95,7 @@ Notice carefully that you are creating a trigger based on  changes made to a bra
 ![](img/lab4_save_pipeline.png)
 
 * Click "Save" again.
-* Go to Pipelines > Pieplines
+* Go to Pipelines > Pipelines
 * Click on "All" to view the pipeline we just created.
 * Click and rename the pipeline as done in the previous labs.
 * Give it a suitable name like for example "Working with triggers"
@@ -118,9 +118,9 @@ Next lets put this to action. Lets make a change to our code/content in branch *
 
 * Type some sample text on the ReadMe.md edit window and Click "Commit"
 * Click "Commit" again! Ensure that you have the correct "branch name" selected.
-* Click Commit"
+* Click on Pipelines>Pipelines.
 
-
+Notice how only one of the pipelines gets triggered based on our inlcusion and exclusion rules and other pipelines remain as is.
 
 # 4.2 Working with triggers and path
 
