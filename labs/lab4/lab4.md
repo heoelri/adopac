@@ -120,6 +120,8 @@ Next lets put this to action. Lets make a change to our code/content in branch *
 * Click "Commit" again! Ensure that you have the correct "branch name" selected.
 * Click on Pipelines>Pipelines.
 
+![](img/lab4_running_pipelines.PNG)
+
 Notice how only one of the pipelines gets triggered based on our inlcusion and exclusion rules and other pipelines remain as is.
 
 # 4.2 Working with triggers and path
