@@ -342,6 +342,6 @@ Our last stage **stage5** will be executed after **stage3** and **stage4** were 
 
 You can also see the jobs to stage correlation including time take for each job to complete by clicking on **Jobs** as show below.
 
-(img/lab2_job_to_stage_duration.png)
+![Five Stages Closed Loop](img/lab2_job_to_stage_duration.png)
 
 Let's now go back to the [Overview](/README.md) or continue with [Lab 3](/labs/lab3/lab3.md).
