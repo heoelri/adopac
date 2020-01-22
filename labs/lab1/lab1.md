@@ -97,7 +97,7 @@ And click on:
 
 * Save and run
 
-You can also select if you want to write your change into the master branch or if you want to create another branch for your change.
+You can also select if you want to write your change into the master branch or if you want to create another branch for your change. In real world scenarios changes are almost never made directly on the master branch. We can create additional branches based off of master for things like adding feature, fixing a bug etc.
 
 The pipeline will now start and after a few seconds the output should look like this:
 
