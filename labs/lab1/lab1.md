@@ -150,6 +150,10 @@ Here you can now get deeper insights into each indiviual job and their tasks and
 
 ![Job Status Output](img/lab1_job_status_one_line_script.png)
 
+* Click on "view raw log" to view the complete logs.
+
+![Repos and Files](img/lab1_view_raw_logs.png)
+
 ## 1.4 Use the assistant to add tasks
 
 Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
