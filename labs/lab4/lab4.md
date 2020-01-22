@@ -86,7 +86,7 @@ steps:
   * Click "Continue"
   * We will not run the pipeline yet, instead from the drop click "Save"
   
-  ![]/(img/lab4_save_pipeline01.png)
+  ![](img/lab4_save_pipeline01.png)
   
 Notice carefully that you are creating a trigger based on  changes made to a branch and inlcuding one branch and excluding two others.
 
