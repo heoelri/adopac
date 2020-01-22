@@ -237,7 +237,9 @@ To achieve this we're going to add a condition (and a displayname for the task t
 * Go back to Pipelines > Pipelines
 * Select our "Multi-stage pipeline with conditions"
 * Select the last job (it's perhaps still running)
-* Click on one of the stages
+* Click on **Build Stage Windows**
+
+Note! There are chances that your job is still queued, during this time keep calm :)
 
 In the job details you'll now see that our stage that previously failed is now not executed as part of the windows stage anymore. Our condition works.
 
