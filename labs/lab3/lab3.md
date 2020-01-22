@@ -194,7 +194,7 @@ In our editor we can see that we can only modify the pipeline itself but not it'
 
 But before we proceed to our template, let's take a deeper look into the pipeline editor and what we can see here:
 
-![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths.png)
+![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths1.png)
 
 1) Shows us the branch we're working in here it's **master**
 2) Is our repository **MyDevOpsProject**
