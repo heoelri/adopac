@@ -67,9 +67,9 @@ steps:
 ```
 
 * Click "Commit" twice.
-* Click Pipelines>Pipelines
-* Click New Pipeline
-* Select Azure Repos Git (YAML)
+* Goto Pipelines > Pipelines
+* Click "New Pipeline"
+* Select "Azure Repos Git (YAML)"
 * Select your repository
 * Select "Existing Azure Pipelines YAML file"
 * Select feature branch "rathishr/feature1" and path as "/working-with-triggers.yml"
@@ -80,26 +80,26 @@ steps:
 
 ![click on continue](img/lab4_select_feature_branch_continue.png)
 
+Notice carefully that you are creating a trigger based on  changes made to a branch and including one branch and excluding two others.
+
 * We will not run the pipeline yet, instead from the drop click "Save"
   
 ![save pipeline](img/lab4_save_pipeline01.png)
-  
-Notice carefully that you are creating a trigger based on  changes made to a branch and including one branch and excluding two others.
 
-* At this point we are only going to save this pipeline and run later. Hence click on the drop down "Save and Run" and Click on "Save"
+We've now successfully imported a pipeline we've previously created directly in our Azure Repo. Before we proceed, let's rename our pipeline:
 
-![save pipeline](img/lab4_save_pipeline.png)
-
-* Click "Save" again.
 * Go to Pipelines > Pipelines
 * Click on "All" to view the pipeline we just created.
+
+![show all pipelines](img/lab4_show_all_pipelines.png)
+
 * Click and rename the pipeline as done in the previous labs.
 * Give it a suitable name like for example "Working with triggers"
 * Click "Save"
 
 Next lets put this to action. Lets make a change to our code/content in branch **rathishr/feature1**
 
-* Goto Repos> Files
+* Goto Repos > Files
 * Change the branch from "master" to "rathishr/feature1"
 
 ![select a branch](img/lab4_pick_branch.png)
