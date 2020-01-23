@@ -344,4 +344,78 @@ You can also see the jobs to stage correlation including time take for each job 
 
 ![job status overview](img/lab2_job_to_stage_duration.PNG)
 
+## 2.5 Approvals
+
+There are several scenarios where an additional approval is needed before a deployment into a specific stage or environment can be started. In this task we'll exted our pipeline to require a manual approval before stage 5 will be executed.
+
+* Goto Pipelines > Pipelines
+* Select our pipeline
+* Click on "Edit"
+
+To define approvals we've to introduce environments first. Environments are additional properties that are only available in deployment jobs.
+
+> **Environments**  
+> The environment keyword specifies the environment or its resource that is targeted by a deployment job of the pipeline. An environment also holds information about the deployment strategy for running the steps defined inside the job. Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#environment) for more information.
+
+Currently our Stage 5 looks like this:
+
+![stage 5 current](img/lab2_pipeline_stage5.png)
+
+Let's now modify Stage 5 to look like this:
+
+![stage 5 new](img/lab2_pipeline_stage5_new.png)
+
+Here's the code:
+
+```YAML
+- stage: stage5
+  dependsOn:
+  - stage4
+  - stage3
+  jobs:
+  - deployment: stage5job1
+    environment: production
+```
+
+* Click "Save" (twice)
+* Click "Run" (twice)
+
+A few minutes later, all our stages are completed. 
+
+![all stages finished](img/lab2_finished_all_stages.png)
+
+But where's our approval? What happened in the background is that Azure DevOps has now created the environment "production". As defined in our deployment job **stage5job1**.
+
+* Goto Pipelines > Environments
+
+You'll see here our new environment **production**.
+
+![new environment](img/lab2_new_environment_production.png)
+
+* Click on environment "production"
+* Click on the three dots (top right)
+* Click on "Approvals and checks"
+
+![approvals and checks](img/lab2_approvals_and_checks.png)
+
+* Select "Approvals"
+
+![add your first approval](img/lab2_define_an_approval.png)
+
+This will take you to the "Approvals" dialog.
+
+![approvals dialog](img/lab2_approvals_dialog.png)
+
+* Select yourself als "Approver" (in real world deployments you'll probably use a group)
+* (optional) Insert some instructions
+* Click on "Create"
+
+Let's now go back to our pipeline to check if it now requires an additional approval.
+
+* Goto Pipelines > Pipelines
+* Select our pipeline
+* Click "Run pipeline"
+
+
+
 Let's now go back to the [Overview](/README.md) or continue with [Lab 3](/labs/lab3/lab3.md).

@@ -28,7 +28,7 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Load steps from templates](/labs/lab3/lab3.md#31-load-steps-from-templates)
   * [Reusing stages with templates](/labs/lab3/lab3.md#32-reusing-stages-with-templates)
   * [Conditions](/labs/lab3/lab3.md#33-conditions)
-  * [Skipping branches](labs/lab3/lab3.md#34-skipping-branches)
+  * [Skipping stages](labs/lab3/lab3.md#34-skipping-stages)
   
 * [Lab 4 - Triggers](/labs/lab4/lab4.md)
   * [Working with triggers and branches](/labs/lab4/lab4.md#4-1-working-with-triggers-and-branches)
