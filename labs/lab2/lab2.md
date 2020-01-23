@@ -380,7 +380,7 @@ Here's the code:
 * Click "Save" (twice)
 * Click "Run" (twice)
 
-A few minutes later, all our stages are completed. 
+A few minutes later, all our stages are completed.
 
 ![all stages finished](img/lab2_finished_all_stages.png)
 
