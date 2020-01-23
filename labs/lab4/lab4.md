@@ -74,9 +74,12 @@ steps:
 * Select "Existing Azure Pipelines YAML file"
 * Select feature branch "rathishr/feature1" and path as "/working-with-triggers.yml"
   
-![import an existing pipeline](img/lab4_select_feature_branch.PNG)
+![import an existing pipeline](img/lab4_select_feature_branch.png)
   
 * Click "Continue"
+
+![click on continue](img/lab4_select_feature_branch_continue.png)
+
 * We will not run the pipeline yet, instead from the drop click "Save"
   
 ![save pipeline](img/lab4_save_pipeline01.png)
