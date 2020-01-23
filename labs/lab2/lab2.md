@@ -21,7 +21,7 @@ steps:
 - bash: echo "Hello world"
 ```
 
-This example shows a single job, using Ubuntu 16.04, containing a single task "bash". We now want to split our previously created pipeline into two jobs.
+This example shows a single job, using Ubuntu 16.04 (Microsoft-hosted agent), containing a single task "bash". We now want to split our previously created pipeline into two jobs.
 
 * Goto "Pipelines" > "Pipelines"
 * Select our "MyDevOpsProject" pipeline
@@ -235,7 +235,7 @@ Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/proc
 
 In our next task we're going to add dependencies to our stages.
 
-## 2.3 Adding Dependencies between Jobs and Stages
+## 2.4 Adding Dependencies between Stages
 
 In our previous task we've mentioned that stages will be, by default, executed in the order they're defined in the YAML file.
 
@@ -246,8 +246,10 @@ Let's go back to our pipeline:
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline
 * Click "Edit"
-* Goto **Line 28**
+* Goto **Line 28** (May differ in your case)
 * Add a `dependsOn`
+
+> Make sure that dependsOn is aligned with job.
 
 ```YAML
 - stage: stage2
@@ -337,5 +339,9 @@ Let's do a last change in our pipline to close the loop and to bring the stages 
 ![Five Stages Closed Loop](img/lab2_five_stages_closed_loop.png)
 
 Our last stage **stage5** will be executed after **stage3** and **stage4** were executed successfully.
+
+You can also see the jobs to stage correlation including time take for each job to complete by clicking on **Jobs** as show below.
+
+![job status overview](img/lab2_job_to_stage_duration.PNG)
 
 Let's now go back to the [Overview](/README.md) or continue with [Lab 3](/labs/lab3/lab3.md).

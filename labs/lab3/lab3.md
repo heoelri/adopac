@@ -27,7 +27,7 @@ This will now create new new "Starter pipeline" in our repository.
 
 ![New Starter Pipeline](img/lab3_new_starter_pipeline.png)
 
-Let us give our new pipeline a name that is a bit better than the default `azure-pipelines-1-yml`.
+Let us give our new pipeline a name that is a bit better than the default azure-pipelines-1-yml.
 
 * Click on the filename
 
@@ -99,7 +99,7 @@ Besides the output itself you'll see here that there is no difference between pi
 1) Is the part in our main pipeline file.
 2) Are the steps coming from the template.
 
-## 3.2 Reusing stages with templates
+## 3.2 Reusing templates in different stages
 
 In our next task we are now going to build a slightly more advanced pipeline with multiple stages using the same template.
 
@@ -194,7 +194,7 @@ In our editor we can see that we can only modify the pipeline itself but not it'
 
 But before we proceed to our template, let's take a deeper look into the pipeline editor and what we can see here:
 
-![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths.png)
+![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths1.png)
 
 1) Shows us the branch we're working in here it's **master**
 2) Is our repository **MyDevOpsProject**
@@ -237,7 +237,9 @@ To achieve this we're going to add a condition (and a displayname for the task t
 * Go back to Pipelines > Pipelines
 * Select our "Multi-stage pipeline with conditions"
 * Select the last job (it's perhaps still running)
-* Click on one of the stages
+* Click on **Build Stage Windows**
+
+Note! There are chances that your job is still queued, during this time keep calm :)
 
 In the job details you'll now see that our stage that previously failed is now not executed as part of the windows stage anymore. Our condition works.
 

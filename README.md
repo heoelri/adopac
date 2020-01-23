@@ -31,10 +31,9 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Skipping branches](labs/lab3/lab3.md#34-skipping-branches)
   
 * [Lab 4 - Triggers](/labs/lab4/lab4.md)
-  * Branches
-  * Path
-  * Container
-
+  * [Working with triggers and branches](/labs/lab4/lab4.md#4-1-working-with-triggers-and-branches)
+  * [Working with triggers and path](/labs/lab4/lab4.md#42-working-with-triggers-and-path)
+  
 * Lab 5 - Versioning, Branches and Conditions
   * Interact with Branches
   * Pipeline versioning

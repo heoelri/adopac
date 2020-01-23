@@ -46,6 +46,8 @@ And click on "Import".
 
 This will now import the whole Repository from GitHub into your new Azure DevOps Repository.
 
+Lets now get started with creating our starter pipeline.
+
 * Click on "Pipelines"
 * Click on "Pipelines"
 * Click on "Create Pipeline"
@@ -95,7 +97,7 @@ And click on:
 
 * Save and run
 
-You can also select if you want to write your change into the master branch or if you want to create another branch for your change.
+You can also select if you want to write your change into the master branch or if you want to create another branch for your change. In real world scenarios changes are almost never made directly on the master branch. We can create additional branches based off of master for things like adding feature, fixing a bug etc.
 
 The pipeline will now start and after a few seconds the output should look like this:
 
@@ -148,6 +150,10 @@ Here you can now get deeper insights into each indiviual job and their tasks and
 
 ![Job Status Output](img/lab1_job_status_one_line_script.png)
 
+* Click on "view raw log" to view the complete logs.
+
+![Repos and Files](img/lab1_view_raw_logs.png)
+
 ## 1.4 Use the assistant to add tasks
 
 Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
@@ -174,6 +180,8 @@ To get a better understanding of how to work with tasks and how to extend your p
 * Click on "Add"
 
 We can now see that there was a new section added to our YAML pipeline:
+
+> Note: You may experience indentation errors demarked by red and yellow lines. Use the backspace option to correct the indentation until the red and yellow lines are gone.
 
 ![New Section in Pipeline](img/lab1_new_bash_task_in_editor.png)
 
@@ -220,7 +228,7 @@ There are several ways to store and call variables. We're starting with a very s
 
 ![Create a new variable](img/lab1_create_new_variable.png)
 
-You can here also specify a few more things, but for now we leave everything as it is.
+Here you can also specify a few more things, but for now we leave everything as it is.
 
 * Click on "OK" to save our new variable
 * Click on "Save" to save the modified pipeline variables
@@ -263,7 +271,7 @@ You should now see a file called "azure-pipelines.yml" in your repositories root
 
 ![Pipeline in Repo](img/lab1_pipeline_in_repo.png)
 
-You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor we saw before:
+You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor like adding tasks for example that we saw before:
 
 ![File Editor](img/lab1_repo_file_editor.png)
 
