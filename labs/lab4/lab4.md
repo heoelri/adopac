@@ -81,7 +81,7 @@ steps:
   
 ![save pipeline](img/lab4_save_pipeline01.png)
   
-Notice carefully that you are creating a trigger based on  changes made to a branch and inlcuding one branch and excluding two others.
+Notice carefully that you are creating a trigger based on  changes made to a branch and including one branch and excluding two others.
 
 * At this point we are only going to save this pipeline and run later. Hence click on the drop down "Save and Run" and Click on "Save"
 
@@ -128,7 +128,7 @@ Lets see this in action
 
 First lets modify the YAML pipeline.
 
-* Click Pipelines>Pipelines
+* Click Pipelines > Pipelines
 * Select the "working with triggers" pipeline and click "Edit"
 * Replace the "trigger" section with the below code
 
@@ -155,13 +155,13 @@ Your pipeline should like below
 
 Now lets put this logic into action. We are going to edit the sampe-file.md which should not trigger the pipeline based on our path based exclusion.
 
-* Click on Repos> Files
+* Click on Repos > Files
 * Make sure you are in the right branch which in our case is "rathishr/feature1".
 * Create a new folder called "docs" and a file called "sample-file.md"
 * Type some sample text and click on "Commit" twice.
 * Swith to pipleines view and notice that the "Working with triggers" pipeline does not get triggered based on our exclusion.
 * Go back to Repos> Files and ensure the right branch (rathishr/feature1) is selected.
-* Create a new file under the docs folder, for example "sample-file02.md". Click "Create"
+* Create a new file under the docs folder, for example `sample-file02.md`. Click "Create"
 * Type some sample text and click "commit" twice.
 * Notice how the "Working with triggers" pipeline gets triggered.
 
