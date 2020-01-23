@@ -415,7 +415,13 @@ Let's now go back to our pipeline to check if it now requires an additional appr
 * Goto Pipelines > Pipelines
 * Select our pipeline
 * Click "Run pipeline"
+* Click "Run"
 
+After finishing all previous stages, you should see that stage5 is now in "Waiting" state, waiting for an approval.
 
+![waiting for approval](img/lab2_stage5_waiting_for_approval.png)
+
+* Click "Review"
+* Click "Reject" or "Approve"
 
 Let's now go back to the [Overview](/README.md) or continue with [Lab 3](/labs/lab3/lab3.md).
