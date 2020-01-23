@@ -104,7 +104,7 @@ Next lets put this to action. Lets make a change to our code/content in branch *
 
 ![select a branch](img/lab4_pick_branch.png)
 
-* Click on the three dots and select **New**>**Folder**
+* Click on the three dots next to the name of your repository and select **New** > **Folder**
 
 ![create a new folder](img/lab4_create_folder.png)
 
@@ -112,27 +112,29 @@ Next lets put this to action. Lets make a change to our code/content in branch *
 
 ![create a new file](img/lab4_create_file_folder01.png)
 
-* Type some sample text on the ReadMe.md edit window and Click "Commit"
-* Click "Commit" again! Ensure that you have the correct "branch name" selected.
+* Type some sample text on the ReadMe.md edit window
+* Click "Commit"
+* Click "Commit" again and make sure that you have the correct "branch name" selected.
 * Click on Pipelines > Pipelines.
 
 ![recently run pipelines](img/lab4_running_pipelines.PNG)
 
-Notice how only one of the pipelines gets triggered based on our inlcusion and exclusion rules and other pipelines remain as is.
+Notice how only one of the pipelines gets triggered based on our inclusion and exclusion rules and other pipelines remain as is.
 
 ## 4.2 Working with triggers and path
 
 > **Scenario**  
 > I would like to trigger my pipeline only when a new commit goes into the file path “Repository/Web/*”.
 
-In this exercise we will see how we can make use of path based triggers to include/exclude certain files from triigering the pipeline. For example when you have docs in wiki, you would need to trigger the pipeline for changes you make to the document files.
+In this exercise we will see how we can make use of path based triggers to include/exclude certain files from triggering the pipeline. For example when you have docs in wiki, you would need to trigger the pipeline for changes you make to the document files.
 
-Lets see this in action
+Lets see this in action. 
 
 First lets modify the YAML pipeline.
 
 * Click Pipelines > Pipelines
-* Select the "working with triggers" pipeline and click "Edit"
+* Select the "working with triggers" pipeline 
+* Click "Edit"
 * Replace the "trigger" section with the below code
 
 ```YAML
@@ -156,14 +158,28 @@ Your pipeline should like below
 
 * Click "Save" twice to commit to feature branch.
 
-Now lets put this logic into action. We are going to edit the sampe-file.md which should not trigger the pipeline based on our path based exclusion.
+Let's now create the folder structure to showcase what we did.
+
+* Go back to Repos > Files
+* Create a new folder called `docs` and a file called `readme.md`
+* Type some sample text and click on "Commit" twice.
+* Goto Pipelines > Pipelines
+
+After this our pipeline is now triggered once as we've created a new folder called `docs` that will trigger the pipeline.
+
+Now lets put this logic into action. We are going to add and edit the `sample-file.md` which should not trigger the pipeline based on our path based exclusion.
 
 * Click on Repos > Files
-* Make sure you are in the right branch which in our case is "rathishr/feature1".
-* Create a new folder called "docs" and a file called "sample-file.md"
+
+Make sure you are in the right branch which in our case is "rathishr/feature1".
+
+* Create a new file called `sample-file.md` in our `docs` folder
 * Type some sample text and click on "Commit" twice.
-* Swith to pipleines view and notice that the "Working with triggers" pipeline does not get triggered based on our exclusion.
-* Go back to Repos> Files and ensure the right branch (rathishr/feature1) is selected.
+* Goto Pipelines > Pipelines
+
+You will notice that the "Working with triggers" pipeline does not get triggered based on our exclusion.
+
+* Go back to Repos > Files and ensure the right branch (rathishr/feature1) is selected.
 * Create a new file under the docs folder, for example `sample-file02.md`. Click "Create"
 * Type some sample text and click "commit" twice.
 * Notice how the "Working with triggers" pipeline gets triggered.
