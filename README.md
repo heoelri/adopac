@@ -22,19 +22,20 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Separating Tasks into different Jobs](/labs/lab2/lab2.md#21-separating-tasks-into-different-jobs)
   * [Adding dependencies between Jobs](/labs/lab2/lab2.md#22-adding-dependencies-between-jobs)
   * [Splitting our pipeline into Stages](/labs/lab2/lab2.md#23-splitting-our-pipeline-into-stages)
-  * [Dependencies between Stages](/labs/lab2/lab2.md#23-adding-dependencies-between-jobs-and-stages)
+  * [Dependencies between Stages](/labs/lab2/lab2.md#24-adding-dependencies-between-jobs-and-stages)
+  * [Approvals](/labs/lab2/lab2.md#25-approvals)
 
 * [Lab 3 - Working with (YAML) Templates](labs/lab3/lab3.md)
   * [Load steps from templates](/labs/lab3/lab3.md#31-load-steps-from-templates)
   * [Reusing stages with templates](/labs/lab3/lab3.md#32-reusing-stages-with-templates)
   * [Conditions](/labs/lab3/lab3.md#33-conditions)
-  * [Skipping branches](labs/lab3/lab3.md#34-skipping-branches)
+  * [Skipping stages](labs/lab3/lab3.md#34-skipping-stages)
   
 * [Lab 4 - Triggers](/labs/lab4/lab4.md)
   * [Working with triggers and branches](/labs/lab4/lab4.md#4-1-working-with-triggers-and-branches)
   * [Working with triggers and path](/labs/lab4/lab4.md#42-working-with-triggers-and-path)
   
-* Lab 5 - Versioning, Branches and Conditions
+* [Lab 5 - Versioning, Branches and Conditions](/labs/lab5/lab5.md)
   * Interact with Branches
   * Pipeline versioning
 

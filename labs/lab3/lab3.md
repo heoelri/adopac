@@ -245,7 +245,7 @@ In the job details you'll now see that our stage that previously failed is now n
 
 ![skipped task in pipeline](img/lab3_skipped_task_in_pipeline.png)
 
-## 3.4 Skipping Branches
+## 3.4 Skipping stages
 
 Sometimes it might be required to run only a subset of all stages within a pipeline. To achieve this, it's not needed to modify the pipeline itself. As part of the manual pipeline execution you can specify which stages should be executed.
 
