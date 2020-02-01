@@ -95,11 +95,11 @@ Let us start the pipeline manually and take a look:
 * Select our pipeline
 * Select the last run
 
-And here you'll already see that our pipeline is now splitted into two different jobs:
+And here you will already see that our pipeline is now splitted into two different jobs:
 
 ![Splitted pipeline run](img/lab2_splitted_pipeline_details.png)
 
-As we haven't specified any dependencies our two jobs can run in parallel and without a specific order. In aboves screenshot part2 is already finished while part1 wasn't even started.
+As we have not specified any dependencies our two jobs can run in parallel and without a specific order. In aboves screenshot part2 is already finished while part1 was not even started.
 
 When you click on one of the jobs, you can see more details about the steps and tasks within each of your jobs:
 
@@ -107,39 +107,39 @@ When you click on one of the jobs, you can see more details about the steps and 
 
 Jobs are a great feature to run tasks in parallel, in a specific order or on different platforms (Windows, Linux, ..).
 
-Before we now proceed with the next task, let's add a dependency to make sure that part1 is executed before part2 in our pipeline.
+Before we now proceed with the next task, let us add a dependency to make sure that part1 is executed before part2 in our pipeline.
 
 ## 2.2 Adding dependencies between Jobs
 
 Let us now go back to our pipeline and add a dependency:
 
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Click "Edit"
-* Add a new line after line 25 (in my case, see the following screenshot, below  `- job: part2`)
+1. Goto "Pipelines" > "Pipelines"
+1. Select our pipeline
+1. Click "Edit"
+1. Add a new line after line 25 (in my case, see the following screenshot, below  `- job: part2`)
 
-```YAML
-- job: part2
-  dependsOn: part1
-```
+  ```YAML
+  - job: part2
+    dependsOn: part1
+  ```
 
-> Make sure that dependsOn is aligned with job.
+  > Make sure that dependsOn is aligned with job.
 
-![Dependency between 1 and 2](img/lab2_part1_dependency.png)
+  ![Dependency between 1 and 2](img/lab2_part1_dependency.png)
 
-* Click "Save"
-* Select "Commit directly to the master branch"
-* Click "Save"
+1. Click "Save"
+1. Select "Commit directly to the master branch"
+1. Click "Save"
 
-This will trigger a new run of our pipeline.
+  This will trigger a new run of our pipeline.
 
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+1. Goto "Pipelines" > "Pipelines"
+1. Select our pipeline
+1. Select the last run
 
-Here you'll see now, that part1 will be executed first and part2 will start after part1 was successfully finished.
+  Here you'll see now, that part1 will be executed first and part2 will start after part1 was successfully finished.
 
-![Part1 first](img/lab2_part1_part2_dependency.png)
+  ![Part1 first](img/lab2_part1_part2_dependency.png)
 
 ## 2.3 Splitting our pipeline into Stages
 
