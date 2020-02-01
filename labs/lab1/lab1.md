@@ -79,7 +79,7 @@ Lets now get started with creating our starter pipeline.
 What you can see above is a very simple pipeline that contains only a few pieces. Let's quickly go through the items we can see there:
 
 * **trigger** define which changes or actions will trigger our current pipeline. We will cover triggers in more detail in one of the next labs.
-* **pool** defines the setup of our build agent that's used to run our pipeline. You can configure things like managed or unmanaged agents, the operating system and other things.
+* **pool** defines the setup of our build agent that is used to run our pipeline. You can configure things like managed or unmanaged agents, the operating system and other things.
 * The **steps** section contains one or more tasks.
 * **script** is an alias for a script task that can execute bash commands and scripts.
 
@@ -138,11 +138,11 @@ Let us now have a deeper look into the output of your pipeline.
 
     This dialog shows you some important information, like:
 
-    1) Who has triggered the pipeline
-    2) The branch (here master)
-    3) Start date/time
-    4) Duration
-    5) Jobs and their status
+    1. Who has triggered the pipeline
+    2. The branch (here master)
+    3. Start date/time
+    4. Duration
+    5. Jobs and their status
 
     To get even more insights about the jobs,
 

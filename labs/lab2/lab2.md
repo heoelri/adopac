@@ -2,7 +2,7 @@
 
 In [Lab 1](/labs/lab1/lab1.md) we have learned how to build a simple pipeline using Azure DevOps. In this lab we are going a bit deeper working with more advanced functionality.
 
-In case you haven't finished [Lab 1](/labs/lab1/lab1.md), please go back and finish it first.
+In case you have not finished [Lab 1](/labs/lab1/lab1.md), please go back and finish it first.
 
 ## 2.1 Separating Tasks into different Jobs
 
@@ -12,7 +12,7 @@ At the end of [Lab 1](/labs/lab1/lab1.md), our pipeline had three tasks. All of 
 > You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.  
 > See [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) for more information.
 
-In our previous lab we've created a pipeline using the wizard. The wizard creates a pipeline with a single job. Like this:
+In our previous lab we have created a pipeline using the wizard. The wizard creates a pipeline with a single job. Like this:
 
 ```YAML
 pool:
@@ -30,8 +30,7 @@ This example shows a single job, using Ubuntu 16.04 (Microsoft-hosted agent), co
 We now want to separate the last task into a separate job. To achieve this we're now replacing the existing pipeline with the following one:
 
 ```YAML
-trigger:
-- master
+trigger: none
 
 jobs:
 - job: part1
@@ -85,7 +84,9 @@ The default setting is to delete your newly created branch after merging. Leave 
 
 ![Merge PR](img/lab2_merge_pr.png)
 
-Merging our PR should now automatically start a new pipeline run. Let's take a look:
+Merging our PR will **not** automatically start a new pipeline run as we set our trigger to _none_.
+
+Let us start the pipeline manually and take a look:
 
 * Click "Pipelines" > "Pipelines"
 * Select our pipeline

@@ -184,4 +184,17 @@ First lets modify the YAML pipeline.
 1. Type some sample text and click "commit" twice.
 1. Notice how the "Working with triggers" pipeline gets triggered.
 
+## 4.3 Scheduled Trigger
+
+Sometimes it makes sense to trigger pipelines not, or not only using a PR or a CI trigger. There are scenarios where you want to run a pipeline for example on a regular basis.
+
+To implement this we have so called "scheduled trigger" that allow us, pretty similar to a cronjob in Linux, to run pipelines based on a specific schedule.
+
+In this task we are now going to modify a pipeline to run on a daily and a weekly basis.
+
+1. Goto Pipelines > Pipelines
+1. Select our "Working with triggers" pipeline
+1. Click on "Edit"
+
+
 This concludes Lab 4. Let's now go back to the [Overview](/README.md) or continue with [Lab 5](/labs/lab5/lab5.md).
