@@ -116,7 +116,7 @@ Let us now go back to our pipeline and add a dependency:
 1. Goto "Pipelines" > "Pipelines"
 1. Select our pipeline
 1. Click "Edit"
-1. Add a new line after line 25 (in my case, see the following screenshot, below  `- job: part2`)
+1. Add a new line after `- job: part2` (the line number might vary)
 
   ```YAML
   - job: part2
@@ -143,14 +143,14 @@ Let us now go back to our pipeline and add a dependency:
 
 ## 2.3 Splitting our pipeline into Stages
 
-Now that we had a quick intro into jobs we'll now continiue with stages.
+Now that we had a quick intro into jobs we'll now continue with stages.
 
 > **What are stages?**  
 > You can organize the jobs in your pipeline into stages. Stages are the major divisions in a pipeline: "build this app", "run these tests", and "deploy to pre-production" are good examples of stages. They are a logical boundary in your pipeline at which you can pause the pipeline and perform various checks.  
 > Every pipeline has at least one stage even if you do not explicitly define it. Stages may be arranged into a dependency graph: "run this stage before that one".  
 > Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/stages) to learn more.
 
-A stage can contain one or more jobs. Here's an example how this could look like:
+A stage can contain one or more jobs. Here is an example how this could look like:
 
 ```YAML
 stages:
@@ -171,11 +171,10 @@ Let's now implement stages in our pipeline.
 * Select our "MyDevOpsProject" pipeline
 * Click "Edit"
 
-Now we're replacing the whole pipeline with the following:
+Now we're replacing the whole pipeline with the following code:
 
 ```YAML
-trigger:
-- master
+trigger: none
 
 stages:
 - stage: stage1
@@ -214,13 +213,13 @@ stages:
 * Select "Commit directly to the master branch"
 * Click "Save"
 
-This will now trigger our pipeline.
+As we have set the trigger to _none_, this will not trigger our pipeline automatically anymore.
 
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+* Click on "Run"
+* Select the "master" branch
+* Click on "Run"
 
-You'll directly see the first difference. Our pipeline has now two stages:
+You will directly see the first difference. Our pipeline has now two stages:
 
 ![Pipeline run with stages](img/lab2_pipeline_run_with_stages.png)
 
@@ -241,9 +240,9 @@ In our next task we're going to add dependencies to our stages.
 
 ## 2.4 Adding Dependencies between Stages
 
-In our previous task we've mentioned that stages will be, by default, executed in the order they're defined in the YAML file.
+In our previous task we have mentioned that stages will be, by default, executed in the order they are defined in the YAML file.
 
-But there are more ways to control their behavior. In this task we're going to add dependencies to our stages.
+But there are more ways to control their behavior. In this task we are going to add dependencies to our stages.
 
 Let's go back to our pipeline:
 
