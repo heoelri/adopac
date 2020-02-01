@@ -72,6 +72,9 @@ This will now save our changes in a separate branch and create a pull request. T
 * Goto "Repos"
 * Click "Pull requests" (make sure that you're in the correct repo)
 * Select the pull request in "Created by me"
+
+![list of pull requests](img/lab2_list_of_prs.png)
+
 * Click on "Files"
 
 This will now show us the difference between the previous and the modified pipeline:
@@ -108,7 +111,7 @@ Before we now proceed with the next task, let's add a dependency to make sure th
 
 ## 2.2 Adding dependencies between Jobs
 
-Let's go back to our pipeline and add a dependency:
+Let us now go back to our pipeline and add a dependency:
 
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline

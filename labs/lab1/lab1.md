@@ -164,7 +164,7 @@ Let us now have a deeper look into the output of your pipeline.
 
 ## 1.4 Use the assistant to add tasks
 
-Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
+Now that we have a better understanding of where to find what, we are going to extend our pipeline a bit.
 
 1. Click "Pipelines" > "Pipelines"
 1. Select your "Pipeline"
