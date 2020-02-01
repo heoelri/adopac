@@ -315,7 +315,7 @@ If you want your pipeline to depend on multiple stages, you can specify them as 
   - DeployUS2
 ```
 
-Let's do a last change in our pipline to close the loop and to bring the stages back together as part of an additional, last stage:
+Let us do a last change in our pipline to close the loop and to bring the stages back together as part of an additional, last stage:
 
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline
@@ -335,9 +335,9 @@ Let's do a last change in our pipline to close the loop and to bring the stages 
 * Click "Save"
 * Select "Commit directly to the master branch"
 * Click "Save"
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+* Click on "Run"
+* Select the "master" branch
+* Click on "Run"
 
 ![Five Stages Closed Loop](img/lab2_five_stages_closed_loop.png)
 
