@@ -249,7 +249,7 @@ Let's go back to our pipeline:
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline
 * Click "Edit"
-* Goto **Line 28** (May differ in your case)
+* Search for `- stage: stage2` (line number may vary)
 * Add a `dependsOn`
 
 > Make sure that dependsOn is aligned with job.
@@ -260,9 +260,9 @@ Let's go back to our pipeline:
   jobs:
 ```
 
-This will define what's already defined due to the order of our stages. Stage2 will now depend on Stage1 and will not be executed before Stage1 was successfully finished.
+This will define what is already defined due to the order of our stages. Stage2 will now depend on Stage1 and will not be executed before Stage1 was successfully finished.
 
-To make it a bit more interesting, let's now add a third stage that depends on Stage2.
+To make it a bit more interesting, let us now add a third stage that depends on Stage2.
 
 * Goto the end of our pipeline
 * Add the following code
@@ -286,9 +286,9 @@ And let's also add a forth stage that depends on stage1:
 * Click "Save"
 * Select "Commit directly to the master branch"
 * Click "Save"
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+* Click on "Run" (to manually trigger our pipeline)
+* Select the "master" branch
+* Click on "Run"
 
 Our pipeline looks slightly different now:
 
