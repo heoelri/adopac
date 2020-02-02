@@ -26,8 +26,21 @@ Let us start with a build pipeline that creates and publishes build artifacts fo
     * Copy all files that end with *.sh (shell script)
     * Publish these files as build artifacts
 
+    ![build pipeline example](img/lab5_build_pipeline_editor.png)
+
 1. Click on "Run"
-1. Click on "Job"
+1. Click on "Job" to check the job details
+1. Check the "CopyFiles" task
+
+    You will see that our CopyFiles task found 1 file and copied it into out staging directory.
+
+    ![build pipeline output](img/lab5_build_pipeline_output.png)
+
+1. Next, check the "PublishPipelineArtifact" task
+
+    You will see here that it has published 1 file. This is the file that was copied in the previous step.
+
+    ![build pipeline output](img/lab5_build_pipeline_output2.png)
 
 
 This concludes Lab 5. Let's now go back to the [Overview](/README.md).
