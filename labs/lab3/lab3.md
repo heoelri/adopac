@@ -233,12 +233,13 @@ To achieve this we're going to add a condition (and a displayname for the task t
 > If you're looking for a specific builtin or predefined variable, please have a look on the list of [predefined variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#pipeline-variables) on docs.microsoft.com.
 
 * Click on "Commit"
-* Save our changes to the "master" branch
+* Save our changes to the "lab3.2" branch
 * Click on "Commit" again
 
 * Go back to Pipelines > Pipelines
 * Select our "Multi-stage pipeline with conditions"
-* Select the last job (it's perhaps still running)
+* Click on "Run pipeline"
+* Make sure that the correct branch (3.2) is selected
 * Click on **Build Stage Windows**
 
 Note! There are chances that your job is still queued, during this time keep calm :)
