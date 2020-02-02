@@ -150,7 +150,8 @@ Your pipeline should now look like this:
 ![multistage pipeline with stages](img/lab3_multistage_pipeline_with_templates.png)
 
 * Click "Save and run"
-* Select "Commit directly to the master branch"
+* Select "Create a new branch for this commit"
+* Call it "lab3.2"
 * Click "Save and run"
 
 The pipeline should now start to run and you will see two stages (Build Stage Linux and Build Stage Windows) that use exactly the same template with different parameters:
