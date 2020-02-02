@@ -17,11 +17,13 @@ The next step is to define a name for your new ADO Organization:
 
 ![Define a Name for Azure DevOps Organization](img/lab0_create_devops_organization2.png)
 
-And click on "Continue". Now we have a new Organization in Azure DevOps and we can continue with creating a new project.
+* And click on "Continue".
+
+Now we have a new Organization in Azure DevOps and we can continue with creating a new project.
 
 ### Create a new ADO Project
 
-Within your new ADO organization you can create one or more so called "Projects". 
+Within your new ADO organization you can create one or more so called "Projects".
 
 Projects can have different levels of visibility:
 

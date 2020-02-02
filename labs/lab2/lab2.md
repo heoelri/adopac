@@ -2,7 +2,7 @@
 
 In [Lab 1](/labs/lab1/lab1.md) we have learned how to build a simple pipeline using Azure DevOps. In this lab we are going a bit deeper working with more advanced functionality.
 
-In case you haven't finished [Lab 1](/labs/lab1/lab1.md), please go back and finish it first.
+In case you have not finished [Lab 1](/labs/lab1/lab1.md), please go back and finish it first.
 
 ## 2.1 Separating Tasks into different Jobs
 
@@ -12,7 +12,7 @@ At the end of [Lab 1](/labs/lab1/lab1.md), our pipeline had three tasks. All of 
 > You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.  
 > See [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml) for more information.
 
-In our previous lab we've created a pipeline using the wizard. The wizard creates a pipeline with a single job. Like this:
+In our previous lab we have created a pipeline using the wizard. The wizard creates a pipeline with a single job. Like this:
 
 ```YAML
 pool:
@@ -30,8 +30,7 @@ This example shows a single job, using Ubuntu 16.04 (Microsoft-hosted agent), co
 We now want to separate the last task into a separate job. To achieve this we're now replacing the existing pipeline with the following one:
 
 ```YAML
-trigger:
-- master
+trigger: none
 
 jobs:
 - job: part1
@@ -73,6 +72,9 @@ This will now save our changes in a separate branch and create a pull request. T
 * Goto "Repos"
 * Click "Pull requests" (make sure that you're in the correct repo)
 * Select the pull request in "Created by me"
+
+![list of pull requests](img/lab2_list_of_prs.png)
+
 * Click on "Files"
 
 This will now show us the difference between the previous and the modified pipeline:
@@ -85,17 +87,19 @@ The default setting is to delete your newly created branch after merging. Leave 
 
 ![Merge PR](img/lab2_merge_pr.png)
 
-Merging our PR should now automatically start a new pipeline run. Let's take a look:
+Merging our PR will **not** automatically start a new pipeline run as we set our trigger to _none_.
+
+Let us start the pipeline manually and take a look:
 
 * Click "Pipelines" > "Pipelines"
 * Select our pipeline
 * Select the last run
 
-And here you'll already see that our pipeline is now splitted into two different jobs:
+And here you will already see that our pipeline is now splitted into two different jobs:
 
 ![Splitted pipeline run](img/lab2_splitted_pipeline_details.png)
 
-As we haven't specified any dependencies our two jobs can run in parallel and without a specific order. In aboves screenshot part2 is already finished while part1 wasn't even started.
+As we have not specified any dependencies our two jobs can run in parallel and without a specific order. In aboves screenshot part2 is already finished while part1 was not even started.
 
 When you click on one of the jobs, you can see more details about the steps and tasks within each of your jobs:
 
@@ -103,50 +107,50 @@ When you click on one of the jobs, you can see more details about the steps and 
 
 Jobs are a great feature to run tasks in parallel, in a specific order or on different platforms (Windows, Linux, ..).
 
-Before we now proceed with the next task, let's add a dependency to make sure that part1 is executed before part2 in our pipeline.
+Before we now proceed with the next task, let us add a dependency to make sure that part1 is executed before part2 in our pipeline.
 
 ## 2.2 Adding dependencies between Jobs
 
-Let's go back to our pipeline and add a dependency:
+Let us now go back to our pipeline and add a dependency:
 
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Click "Edit"
-* Add a new line after line 25 (in my case, see the following screenshot, below  `- job: part2`)
+1. Goto "Pipelines" > "Pipelines"
+1. Select our pipeline
+1. Click "Edit"
+1. Add a new line after `- job: part2` (the line number might vary)
 
-```YAML
-- job: part2
-  dependsOn: part1
-```
+  ```YAML
+  - job: part2
+    dependsOn: part1
+  ```
 
-> Make sure that dependsOn is aligned with job.
+  > Make sure that dependsOn is aligned with job.
 
-![Dependency between 1 and 2](img/lab2_part1_dependency.png)
+  ![Dependency between 1 and 2](img/lab2_part1_dependency.png)
 
-* Click "Save"
-* Select "Commit directly to the master branch"
-* Click "Save"
+1. Click "Save"
+1. Select "Commit directly to the master branch"
+1. Click "Save"
 
-This will trigger a new run of our pipeline.
+  This will trigger a new run of our pipeline.
 
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+1. Goto "Pipelines" > "Pipelines"
+1. Select our pipeline
+1. Select the last run
 
-Here you'll see now, that part1 will be executed first and part2 will start after part1 was successfully finished.
+  Here you'll see now, that part1 will be executed first and part2 will start after part1 was successfully finished.
 
-![Part1 first](img/lab2_part1_part2_dependency.png)
+  ![Part1 first](img/lab2_part1_part2_dependency.png)
 
 ## 2.3 Splitting our pipeline into Stages
 
-Now that we had a quick intro into jobs we'll now continiue with stages.
+Now that we had a quick intro into jobs we'll now continue with stages.
 
 > **What are stages?**  
 > You can organize the jobs in your pipeline into stages. Stages are the major divisions in a pipeline: "build this app", "run these tests", and "deploy to pre-production" are good examples of stages. They are a logical boundary in your pipeline at which you can pause the pipeline and perform various checks.  
 > Every pipeline has at least one stage even if you do not explicitly define it. Stages may be arranged into a dependency graph: "run this stage before that one".  
 > Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/stages) to learn more.
 
-A stage can contain one or more jobs. Here's an example how this could look like:
+A stage can contain one or more jobs. Here is an example how this could look like:
 
 ```YAML
 stages:
@@ -167,11 +171,10 @@ Let's now implement stages in our pipeline.
 * Select our "MyDevOpsProject" pipeline
 * Click "Edit"
 
-Now we're replacing the whole pipeline with the following:
+Now we're replacing the whole pipeline with the following code:
 
 ```YAML
-trigger:
-- master
+trigger: none
 
 stages:
 - stage: stage1
@@ -210,13 +213,13 @@ stages:
 * Select "Commit directly to the master branch"
 * Click "Save"
 
-This will now trigger our pipeline.
+As we have set the trigger to _none_, this will not trigger our pipeline automatically anymore.
 
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+* Click on "Run"
+* Select the "master" branch
+* Click on "Run"
 
-You'll directly see the first difference. Our pipeline has now two stages:
+You will directly see the first difference. Our pipeline has now two stages:
 
 ![Pipeline run with stages](img/lab2_pipeline_run_with_stages.png)
 
@@ -237,16 +240,16 @@ In our next task we're going to add dependencies to our stages.
 
 ## 2.4 Adding Dependencies between Stages
 
-In our previous task we've mentioned that stages will be, by default, executed in the order they're defined in the YAML file.
+In our previous task we have mentioned that stages will be, by default, executed in the order they are defined in the YAML file.
 
-But there are more ways to control their behavior. In this task we're going to add dependencies to our stages.
+But there are more ways to control their behavior. In this task we are going to add dependencies to our stages.
 
 Let's go back to our pipeline:
 
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline
 * Click "Edit"
-* Goto **Line 28** (May differ in your case)
+* Search for `- stage: stage2` (line number may vary)
 * Add a `dependsOn`
 
 > Make sure that dependsOn is aligned with job.
@@ -257,9 +260,9 @@ Let's go back to our pipeline:
   jobs:
 ```
 
-This will define what's already defined due to the order of our stages. Stage2 will now depend on Stage1 and will not be executed before Stage1 was successfully finished.
+This will define what is already defined due to the order of our stages. Stage2 will now depend on Stage1 and will not be executed before Stage1 was successfully finished.
 
-To make it a bit more interesting, let's now add a third stage that depends on Stage2.
+To make it a bit more interesting, let us now add a third stage that depends on Stage2.
 
 * Goto the end of our pipeline
 * Add the following code
@@ -283,9 +286,9 @@ And let's also add a forth stage that depends on stage1:
 * Click "Save"
 * Select "Commit directly to the master branch"
 * Click "Save"
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+* Click on "Run" (to manually trigger our pipeline)
+* Select the "master" branch
+* Click on "Run"
 
 Our pipeline looks slightly different now:
 
@@ -312,7 +315,7 @@ If you want your pipeline to depend on multiple stages, you can specify them as 
   - DeployUS2
 ```
 
-Let's do a last change in our pipline to close the loop and to bring the stages back together as part of an additional, last stage:
+Let us do a last change in our pipline to close the loop and to bring the stages back together as part of an additional, last stage:
 
 * Goto "Pipelines" > "Pipelines"
 * Select our pipeline
@@ -332,9 +335,9 @@ Let's do a last change in our pipline to close the loop and to bring the stages 
 * Click "Save"
 * Select "Commit directly to the master branch"
 * Click "Save"
-* Goto "Pipelines" > "Pipelines"
-* Select our pipeline
-* Select the last run
+* Click on "Run"
+* Select the "master" branch
+* Click on "Run"
 
 ![Five Stages Closed Loop](img/lab2_five_stages_closed_loop.png)
 

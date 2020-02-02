@@ -133,7 +133,7 @@ Lets see this in action.
 First lets modify the YAML pipeline.
 
 1. Click Pipelines > Pipelines
-1. Select the "working with triggers" pipeline
+1. Select the "Working with triggers" pipeline
 1. Click "Edit"
 1. Replace the "trigger" section with the below code
 
@@ -152,7 +152,7 @@ First lets modify the YAML pipeline.
         - docs/sample-file.md
     ```
 
-    Your pipeline should like below
+    Your pipeline should look like below:
 
     ![pipeline sample](img/lab42_sample_file.PNG)
 
@@ -183,5 +183,70 @@ First lets modify the YAML pipeline.
 1. Create a new file under the docs folder, for example `sample-file02.md`. Click "Create"
 1. Type some sample text and click "commit" twice.
 1. Notice how the "Working with triggers" pipeline gets triggered.
+
+## 4.3 Scheduled Trigger
+
+Sometimes it makes sense to trigger pipelines not, or not only using a PR or a CI trigger. There are scenarios where you want to run a pipeline for example on a regular basis.
+
+To implement this we have so called "scheduled trigger" that allow us, pretty similar to a cronjob in Linux, to run pipelines based on a specific schedule.
+
+In this task we are now going to modify a pipeline to run on a daily and a weekly basis.
+
+1. Goto Pipelines > Pipelines
+1. Select our "Working with triggers" pipeline
+1. Click on "Edit"
+
+We are now going to add an additional block to our pipeline:
+
+```YAML
+schedules:
+- cron: "0 0 * * *"
+  displayName: 'Daily midnight build'
+  branches:
+    include:
+    - master
+```
+
+This code block contains scheduled triggers to run our pipeline on the master branch every night. Whether the code has changed or not since the last run.
+
+It is also possible to have multiple scheduled triggers in a single pipeline. We can for example add:
+
+```YAML
+- cron: "0 12 * * 0"
+  displayName: 'Weekly Sunday build'
+  branches:
+    include:
+    - master
+  always: true
+```
+
+Which will, on top of the previous trigger, run the pipeline every sunday at 12am.
+
+As we have specified only the "master" branch above, we've to merge our changes into master first before our scheduled trigger will start to work.
+
+* Goto Repos > Pull Requests
+* Create a new pull requests
+* Merge changes from our current branch into master
+
+![merge into master](img/lab4_merge_into_master.png)
+
+* Enter a viable title and description
+* Click on "Create"
+
+In the next dialog you can review your pull request. When you have completed your review:
+
+* Click on "Complete"
+
+Now that our changes are in master, let us check the pipeline triggers. 
+
+* Goto Pipelines > Pipelines
+* Select our "Working with triggers" pipeline
+* Goto "Triggers"
+
+![check triggers](img/lab4_check_triggers.png)
+
+And this will show you the next, scheduled pipeline runs, based on the scheduled triggers we have defined earlier:
+
+![scheduled pipeline runs](img/lab4_scheduled_pipeline_runs.png)
 
 This concludes Lab 4. Let's now go back to the [Overview](/README.md) or continue with [Lab 5](/labs/lab5/lab5.md).

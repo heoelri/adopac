@@ -6,17 +6,21 @@ In Lab 1 we are starting with an introduction into Pipelines-as-Code with Azure 
 
 ## 1.1 Create a YAML-Pipeline via GUI
 
-At the time of writing this lab guide 'Multi-stage pipelines' is still a preview feature which is not enabled by default. In order to enable the same follow the below steps.
+### 1.1.1 Enable Multi-stage pipelines
 
-On the top right corner of your Azure DevOps portal click on `Settings` and then `Preview Features`
+At the time of writing this lab guide 'Multi-stage pipelines' is still a preview feature which is not always and everywhere enabled by default. In order to enable the same follow the below steps.
 
-![enable preview features](img/lab1_enable_preview_features.png)
+1. On the top right corner of your Azure DevOps portal click on `Settings` and then `Preview Features`
 
-![enable preview features 2](img/lab1_enable_preview_features_2.png)
+    ![enable preview features](img/lab1_enable_preview_features.png)
 
-In the preview features pane turn 'on' `Multi-stage pipelines` for you as a user.
+    ![enable preview features 2](img/lab1_enable_preview_features_2.png)
 
-![enable preview feautures 3](img/lab1_enable_preview_features_3.png)
+1. In the preview features pane turn 'on' `Multi-stage pipelines` for you as a user.
+
+    ![enable preview feautures 3](img/lab1_enable_preview_features_3.png)
+
+### 1.1.2 Import our Repository from GitHub
 
 Before we can start building our first pipeline, we need a Repository in Azure DevOps.
 
@@ -25,77 +29,81 @@ Before we can start building our first pipeline, we need a Repository in Azure D
 > Version control systems are software that help you track changes you make in your code over time. As you edit your code, you tell the version control system to take a snapshot of your files. The version control system saves that snapshot permanently so you can recall it later if you need it. Use version control to save your work and coordinate code changes across your team.  
 > Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos?view=azure-devops) to learn more.
 
-To initialize the default repository we have in our DevOps Project, click on **Repos** -> **Files** and select **Import a repository**.
+1. To initialize the default repository we have in our DevOps Project, click on **Repos** -> **Files**.
 
-![Repos and Files](img/lab1_repos_files.png)
+    ![Repos and Files](img/lab1_repos_files.png)
 
-![Import Repository](img/lab1_import_repo.png)
+1. and select **Import a repository**
 
-Here we're now importing the Lab Repository from GitHub:
+    ![Import Repository](img/lab1_import_repo.png)
 
-![Import a Git repository](img/lab1_import_a_git_repository.png)
+1. We are now importing the Lab Repository from GitHub:
 
-**Settings:**
+    ![Import a Git repository](img/lab1_import_a_git_repository.png)
 
-* Repository type: Git
-* Clone URL: `https://github.com/heoelri/adopac.git`
+    **Settings:**
 
-And click on "Import".
+    * Repository type: Git
+    * Clone URL: `https://github.com/heoelri/adopac.git`
 
-![Import Repository](img/lab1_import_repository.png)
+1. And click on "Import".
+
+    ![Import Repository](img/lab1_import_repository.png)
 
 This will now import the whole Repository from GitHub into your new Azure DevOps Repository.
 
+### 1.1.3 Create a Starter pipeline
+
 Lets now get started with creating our starter pipeline.
 
-* Click on "Pipelines"
-* Click on "Pipelines"
-* Click on "Create Pipeline"
+1. Click on "Pipelines"
+1. Click on "Pipelines"
+1. Click on "Create Pipeline"
 
-In the "Where is your code?" section:
+    In the "Where is your code?" section:
 
-* Click "Azure Repos Git (YAML)
+1. Click "Azure Repos Git (YAML)
 
-In the "Select a repository" section:
+    In the "Select a repository" section:
 
-* Select "MyDevOpsProject" (or the name you selected for your DevOps project)
+1. Select "MyDevOpsProject" (or the name you selected for your DevOps project)
 
-In the "Configure your pipeline" section:
+    In the "Configure your pipeline" section:
 
-* Select "Starter pipeline"
+1. Select "Starter pipeline"
 
-This will now create a new basic YAML-based pipeline for you.
+    This will now create a new basic YAML-based pipeline for you.
 
-![Review your pipeline](img/lab1_review_your_pipeline.png)
+    ![Review your pipeline](img/lab1_review_your_pipeline.png)
 
 What you can see above is a very simple pipeline that contains only a few pieces. Let's quickly go through the items we can see there:
 
 * **trigger** define which changes or actions will trigger our current pipeline. We will cover triggers in more detail in one of the next labs.
-* **pool** defines the setup of our build agent that's used to run our pipeline. You can configure things like managed or unmanaged agents, the operating system and other things.
+* **pool** defines the setup of our build agent that is used to run our pipeline. You can configure things like managed or unmanaged agents, the operating system and other things.
 * The **steps** section contains one or more tasks.
 * **script** is an alias for a script task that can execute bash commands and scripts.
 
-Our complete pipeline is defined in YAML. To learn the basics of YAML, see [Learn YAML in Y Minutes](https://learnxinyminutes.com/docs/yaml/). Azure Pipelines doesn't support all YAML features. Unsupported features include anchors, complex keys, and sets.
+Our complete pipeline is defined in YAML. To learn the basics of YAML, see [Learn YAML in Y Minutes](https://learnxinyminutes.com/docs/yaml/). Please keep in mind that Azure Pipelines does not support all YAML features today. Unsupported features include anchors, complex keys, and sets.
 
 ## 1.2 Run your pipeline
 
 Now that we have created our very first "Starter pipeline"
 
-* Click "Save and run"
+1. Click "Save and run"
 
-to save the pipeline in your repository and run it. "Save and run" will ask you for a "Commit message" to describe your change in your repository:
+    to save the pipeline in your repository and run it. "Save and run" will ask you for a "Commit message" to describe your change in your repository:
 
-![Save and Run](img/lab1_save_and_run.png)
+    ![Save and Run](img/lab1_save_and_run.png)
 
-Select the following options:
+    Select the following options:
 
-* Commit message: `<your commit message>`
-* Optional extended description: `<additional description>`
-* Commit directly to the master branch
+1. Commit message: `<your commit message>`
+1. Optional extended description: `<additional description>`
+1. Commit directly to the master branch
 
-And click on:
+    And click on:
 
-* Save and run
+    * Save and run
 
 You can also select if you want to write your change into the master branch or if you want to create another branch for your change. In real world scenarios changes are almost never made directly on the master branch. We can create additional branches based off of master for things like adding feature, fixing a bug etc.
 
@@ -115,95 +123,95 @@ The previously created pipeline was very basic. It does not contain much more th
 
 Let us now have a deeper look into the output of your pipeline.
 
-* Click on "Pipelines" > "Pipelines"
-* Click on your pipeline in "Recently run pipelines"
+1. Click on "Pipelines" > "Pipelines"
+1. Click on your pipeline in "Recently run pipelines"
 
-![Recently run pipelines](img/lab1_recently_run_pipelines.png)
+    ![Recently run pipelines](img/lab1_recently_run_pipelines.png)
 
-In this dialog you'll now see all runs of your selected pipeline.
+    In this dialog you'll now see all runs of your selected pipeline.
 
-* Select the last pipeline run
+1. Select the last pipeline run
 
-Here you'll now see the details of the last pipeline run:
+    Here you'll now see the details of the last pipeline run:
 
-![Last pipeline run with comments](img/lab1_last_pipeline_run_with_comments.png)
+    ![Last pipeline run with comments](img/lab1_last_pipeline_run_with_comments.png)
 
-This dialog shows you some important information, like:
+    This dialog shows you some important information, like:
 
-1) Who has triggered the pipeline
-2) The branch (here master)
-3) Start date/time
-4) Duration
-5) Jobs and their status
+    1. Who has triggered the pipeline
+    2. The branch (here master)
+    3. Start date/time
+    4. Duration
+    5. Jobs and their status
 
-To get even more insights about the jobs,
+    To get even more insights about the jobs,
 
-* click on "Job"
+1. click on "Job"
 
-in the "Jobs" section. This will bring you to the job details:
+    in the "Jobs" section. This will bring you to the job details:
 
-![Pipeline Output](img/lab1_job_output.png)
+    ![Pipeline Output](img/lab1_job_output.png)
 
-Here you can now get deeper insights into each indiviual job and their tasks and steps.
+    Here you can now get deeper insights into each indiviual job and their tasks and steps.
 
-* Click on "Run a one-line script"
+1. Click on "Run a one-line script"
 
-![Job Status Output](img/lab1_job_status_one_line_script.png)
+    ![Job Status Output](img/lab1_job_status_one_line_script.png)
 
-* Click on "view raw log" to view the complete logs.
+1. Click on "view raw log" to view the complete logs.
 
-![Repos and Files](img/lab1_view_raw_logs.png)
+    ![Repos and Files](img/lab1_view_raw_logs.png)
 
 ## 1.4 Use the assistant to add tasks
 
-Now that we've a better understanding of where to find what, we're going to extend our pipeline a bit.
+Now that we have a better understanding of where to find what, we are going to extend our pipeline a bit.
 
-* Click "Pipelines" > "Pipelines"
-* Select your "Pipeline"
-* Click on "Edit" (top right)
+1. Click "Pipelines" > "Pipelines"
+1. Select your "Pipeline"
+1. Click on "Edit" (top right)
 
-This will bring us back to the pipeline editor we've seen before.
+    This will bring us back to the pipeline editor we've seen before.
 
-To get a better understanding of how to work with tasks and how to extend your pipeline, we're now going to add a third "bash" task to our pipeline.
+    To get a better understanding of how to work with tasks and how to extend your pipeline, we're now going to add a third "bash" task to our pipeline.
 
-* Put your cursor at the end of the pipeline
-* Search in the "Tasks" section for "bash"
+1. Put your cursor at the end of the pipeline
+1. Search in the "Tasks" section for "bash"
 
-![Tasks - Search for Bash](img/lab1_tasks_search_for_bash.png)
+    ![Tasks - Search for Bash](img/lab1_tasks_search_for_bash.png)
 
-* Click on "Bash"
-* Select Type "Inline"
-* Modify the "Script" section with an individual comment
+1. Click on "Bash"
+1. Select Type "Inline"
+1. Modify the "Script" section with an individual comment
 
-![Bash Task](img/lab1_bash_task_greetings.png)
+    ![Bash Task](img/lab1_bash_task_greetings.png)
 
-* Click on "Add"
+1. Click on "Add"
 
-We can now see that there was a new section added to our YAML pipeline:
+    We can now see that there was a new section added to our YAML pipeline:
 
-> Note: You may experience indentation errors demarked by red and yellow lines. Use the backspace option to correct the indentation until the red and yellow lines are gone.
+    > Note: You may experience indentation errors demarked by red and yellow lines. Use the backspace option to correct the indentation until the red and yellow lines are gone.
 
-![New Section in Pipeline](img/lab1_new_bash_task_in_editor.png)
+    ![New Section in Pipeline](img/lab1_new_bash_task_in_editor.png)
 
-* Click on "Save" (top right) to save your changes
+1. Click on "Save" (top right) to save your changes
 
-We again see that you can now specify a "Commit message" and an optional "extended description". Leave everything as is and "Commit directly to the master branch".
+    We again see that you can now specify a "Commit message" and an optional "extended description". Leave everything as is and "Commit directly to the master branch".
 
-* Click "Save"
+1. Click "Save"
 
-Our changes were now saved into our Repository (master branch) and you can now
+    Our changes were now saved into our Repository (master branch) and you can now
 
-* Click "Run" (top right) to run the modified pipeline
+1. Click "Run" (top right) to run the modified pipeline
 
-![Run pipeline](img/lab1_run_pipeline.png)
+    ![Run pipeline](img/lab1_run_pipeline.png)
 
-* Select the "master" branch and click "Run"
+1. Select the "master" branch and click "Run"
 
-You can now (as learned in Lab 1.3) have a deeper look into the job output to make sure that our new bash task works as expected:
+    You can now (as learned in Lab 1.3) have a deeper look into the job output to make sure that our new bash task works as expected:
 
-![Bash task](img/lab1_bash_task.png)
+    ![Bash task](img/lab1_bash_task.png)
 
-![Bash task output](img/lab1_bash_task_output.png)
+    ![Bash task output](img/lab1_bash_task_output.png)
 
 ## 1.5 Extend your pipeline with variables
 
@@ -213,66 +221,66 @@ In our next step, we now want to make our pipeline a bit more dynamic and flexib
 > Variables give you a convenient way to get key bits of data into various parts of the pipeline. As the name suggests, the value of a variable may change from run to run or job to job of your pipeline. Almost any place where a pipeline requires a text string or a number, you can use a variable instead of hard-coding a value. The system will replace the variable with its current value during the pipeline's execution.  
 > Goto [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/process/variables) to learn more.
 
-There are several ways to store and call variables. We're starting with a very simple way. We store our variable in our pipeline.
+There are several ways to store and call variables. We are starting with a very simple way. We store our variable in our pipeline.
 
-* Goto "Pipelines" > "Pipelines"
-* Select our "Pipeline"
-* Click on "Edit" to edit the pipeline
-* Click on "Variables" (top right)
+1. Goto "Pipelines" > "Pipelines"
+1. Select our "Pipeline"
+1. Click on "Edit" to edit the pipeline
+1. Click on "Variables" (top right)
 
-![Add new variable](img/lab1_add_new_variable.png)
+    ![Add new variable](img/lab1_add_new_variable.png)
 
-* Click on "New variable"
-* Specify Name: "variable1"
-* Specify Value: "this comes from a pipeline variable"
+1. Click on "New variable"
+1. Specify Name: "variable1"
+1. Specify Value: "this comes from a pipeline variable"
 
-![Create a new variable](img/lab1_create_new_variable.png)
+    ![Create a new variable](img/lab1_create_new_variable.png)
 
-Here you can also specify a few more things, but for now we leave everything as it is.
+    Here you can also specify a few more things, but for now we leave everything as it is.
 
-* Click on "OK" to save our new variable
-* Click on "Save" to save the modified pipeline variables
+1. Click on "OK" to save our new variable
+1. Click on "Save" to save the modified pipeline variables
 
-Let's now modify our pipeline to leverage the newly created variable.
+    Let's now modify our pipeline to leverage the newly created variable.
 
-* Add a new line after 'Greetings from Seattle!'
+1. Add a new line after 'Greetings from Seattle!'
 
-```bash
-echo 'Variable: $(variable1)'
-```
+    ```bash
+    echo 'Variable: $(variable1)'
+    ```
 
-Your pipeline should now look like this:
+    Your pipeline should now look like this:
 
-![Add variable to pipeline](img/lab1_use_variable_in_pipeline.png)
+    ![Add variable to pipeline](img/lab1_use_variable_in_pipeline.png)
 
-Let's now save and run our pipeline to see the changes in action:
+    Let us now save and run our pipeline to see the changes in action:
 
-* Click "Save" (top right)
-* "Commit directly to the master branch"
-* Click "Save"
-* Click "Run" (top right)
-* Run pipeline on "master"
-* Click "Run"
+1. Click "Save" (top right)
+1. "Commit directly to the master branch"
+1. Click "Save"
+1. Click "Run" (top right)
+1. Run pipeline on "master"
+1. Click "Run"
 
-When you're now checking the pipeline outputs, you should see the value of your variable there:
+    When you are now checking the pipeline outputs, you should see the value of your variable there:
 
-![Variable in pipeline output](img/lab1_variable_in_pipeline_output.png)
+    ![Variable in pipeline output](img/lab1_variable_in_pipeline_output.png)
 
 ## 1.6 Check the pipeline within your repository
 
-In all our previous steps we've always modified our pipeline in the "Pipelines" > "Pipelines" section using the Pipeline Editor within our browser. But that's not the only way. One of the benefits of using a YAML-based pipeline is that it's stored within an Azure Repo.
+In all our previous steps we have always modified our pipeline in the "Pipelines" > "Pipelines" section using the Pipeline Editor within our browser. But that is not the only way. One of the benefits of using a YAML-based pipeline is that it is stored within an Azure Repo.
 
-Let's now have a look on our Pipeline in our Azure Repo:
+Let us now have a look on our Pipeline in our Azure Repo:
 
-* Click on "Repos"
-* Click on "Files"
+1. Click on "Repos"
+1. Click on "Files"
 
-You should now see a file called "azure-pipelines.yml" in your repositories root directory:
+    You should now see a file called `azure-pipelines.yml` in your repositories root directory:
 
-![Pipeline in Repo](img/lab1_pipeline_in_repo.png)
+    ![Pipeline in Repo](img/lab1_pipeline_in_repo.png)
 
-You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor like adding tasks for example that we saw before:
+    You can edit the pipeline here, too, but without the additional capabilities of the Pipeline Editor like adding tasks for example that we saw before:
 
-![File Editor](img/lab1_repo_file_editor.png)
+    ![File Editor](img/lab1_repo_file_editor.png)
 
 Let's now continue with [Lab 2](/labs/lab2/lab2.md) or go back to the [Overview page](/README.md).
