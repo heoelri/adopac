@@ -171,11 +171,11 @@ But how can we control that? This is where conditions come to play.
 Conditions can be applied to stages, jobs and individual tasks. Let's now add a condition that our build task is only executed when the build agent runs on linux.
 
 * Goto Pipelines > Pipelines
-* Select the new MyDevOpsProject (1) pipeline
+* Select the new "MyDevOpsProject (1)" pipeline
 
 > This should be the pipeline we have created in previous task.
 
-Before we proceed let's give it a better name.
+Before we proceed let us give it a better name.
 
 * Click on the following button:
 
@@ -198,7 +198,7 @@ But before we proceed to our template, let's take a deeper look into the pipelin
 
 ![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths1.png)
 
-1) Shows us the branch we're working in here it's **master**
+1) Shows us the branch we are working in here its **lab3.2**
 2) Is our repository **MyDevOpsProject**
 3) Is the path to our pipeline file in our repository
 4) Is the name of our template file we want to modify next
