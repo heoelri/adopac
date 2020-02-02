@@ -1,17 +1,17 @@
 # Lab 3 - Working with (YAML) Templates
 
-In this lab we're going to take a deeper look into one of the powerful features of YAML-based pipelines in Azure DevOps. We're going to work with YAML Templates. So first of all let's start with a question:
+In this lab we are now going to take a deeper look into one of the powerful features of YAML-based pipelines in Azure DevOps. We are going to work with YAML Templates. So first of all let us start with a question:
 
 **Why do i need templates and why should i use them?**
 
-The short answer is YAML-based or pipelines in general can quickly get very long and complex. There are often times situations where you're doing things multiple times, think of stages for example, to avoid duplicating code over and over again we can use templates to make parts of our pipeline re-usable.
+The short answer is YAML-based or pipelines in general can quickly get very long and complex. There are often times situations where you are doing things multiple times, think of stages for example, to avoid duplicating code over and over again we can use templates to make parts of our pipeline re-usable.
 
 > Azure Pipelines supports these four kinds of templates: **Stage**, **Job**, **Step** and **Variable**. Templates themselves can include other templates. Azure Pipelines supports a maximum of 50 unique template files in a single pipeline.  
 > Go to [docs.microsoft.com](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#template-references) to learn more.
 
 ## 3.1 Load steps from templates
 
-Let's start with a basic example. We want to extend a new pipeline, like the one we created in [Lab 1](/labs/lab1/lab1.md) and [Lab 2](/labs/lab2/lab2.md), with **steps** stored in a **template**.
+Let us start with a basic example. We want to extend a new pipeline, like the one we created in [Lab 1](/labs/lab1/lab1.md) and [Lab 2](/labs/lab2/lab2.md), with its **steps** stored in a **template**.
 
 > **Important!** Make sure that you have, as part of [Lab 1](/labs/lab1/lab1.md#11-create-a-yaml-pipeline-via-gui), imported our GitHub repository into your Azure DevOps project.
 
@@ -48,7 +48,8 @@ To achieve this we can now add the following line to the end of our pipeline:
 After adding this line to the end of our new pipeline:
 
 * Click "Save and run"
-* Select "Commit directly to the master branch"
+* Select "Create a new branch for this commit"
+* Call it "lab3"
 * Click "Save and run"
 
 Our new pipeline looks pretty simmilar to what we did in the previous labs, with the difference that we are now referencing to another file that contains additional parts used by our pipeline:
@@ -86,7 +87,7 @@ You will now see the additional steps that are coming from our template:
 * Docker run image with cowthink
 * Docker run image with animal
 
-Please have a deeper look into cowthink and animal. You'll find some funny ASCII art in there.
+Please have a deeper look into cowthink and animal. You will find some funny ASCII art in there.
 
 ![cowthink](img/lab3_pipeline_output_cowthink.png)
 
@@ -149,7 +150,8 @@ Your pipeline should now look like this:
 ![multistage pipeline with stages](img/lab3_multistage_pipeline_with_templates.png)
 
 * Click "Save and run"
-* Select "Commit directly to the master branch"
+* Select "Create a new branch for this commit"
+* Call it "lab3.2"
 * Click "Save and run"
 
 The pipeline should now start to run and you will see two stages (Build Stage Linux and Build Stage Windows) that use exactly the same template with different parameters:
@@ -169,11 +171,11 @@ But how can we control that? This is where conditions come to play.
 Conditions can be applied to stages, jobs and individual tasks. Let's now add a condition that our build task is only executed when the build agent runs on linux.
 
 * Goto Pipelines > Pipelines
-* Select the new MyDevOpsProject (1) pipeline
+* Select the new "MyDevOpsProject (1)" pipeline
 
 > This should be the pipeline we have created in previous task.
 
-Before we proceed let's give it a better name.
+Before we proceed let us give it a better name.
 
 * Click on the following button:
 
@@ -196,7 +198,7 @@ But before we proceed to our template, let's take a deeper look into the pipelin
 
 ![pipeline editor](img/lab3_pipeline_with_templates_recognize_paths1.png)
 
-1) Shows us the branch we're working in here it's **master**
+1) Shows us the branch we are working in here its **lab3.2**
 2) Is our repository **MyDevOpsProject**
 3) Is the path to our pipeline file in our repository
 4) Is the name of our template file we want to modify next
@@ -231,12 +233,13 @@ To achieve this we're going to add a condition (and a displayname for the task t
 > If you're looking for a specific builtin or predefined variable, please have a look on the list of [predefined variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#pipeline-variables) on docs.microsoft.com.
 
 * Click on "Commit"
-* Save our changes to the "master" branch
+* Save our changes to the "lab3.2" branch
 * Click on "Commit" again
 
 * Go back to Pipelines > Pipelines
 * Select our "Multi-stage pipeline with conditions"
-* Select the last job (it's perhaps still running)
+* Click on "Run pipeline"
+* Make sure that the correct branch (3.2) is selected
 * Click on **Build Stage Windows**
 
 Note! There are chances that your job is still queued, during this time keep calm :)
@@ -261,6 +264,7 @@ This will open the "Run pipeline" dialog
 
 And here, in the "Run pipeline" dialog there's an option to modify the "Stages to run".
 
+* Make sure that the right branch is selected
 * Click on "Stages to run"
 
 In the next dialog you can now see all stages and you've the option to check or uncheck them to select if they'll be executed or skipped.
