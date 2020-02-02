@@ -264,6 +264,7 @@ This will open the "Run pipeline" dialog
 
 And here, in the "Run pipeline" dialog there's an option to modify the "Stages to run".
 
+* Make sure that the right branch is selected
 * Click on "Stages to run"
 
 In the next dialog you can now see all stages and you've the option to check or uncheck them to select if they'll be executed or skipped.
