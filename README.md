@@ -38,6 +38,7 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   
 * [Lab 5 - CI and CD](/labs/lab5/lab5.md)
   * [Build pipelines and artifacts](labs/lab5/lab5.md#51-build-pipelines-and-artifacts)
+  * [Working with build artifacts](labs/lab5/lab5.md#52-working-with-build-artifacts)
 
 ## License
 

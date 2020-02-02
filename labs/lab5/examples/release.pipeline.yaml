@@ -1,0 +1,21 @@
+name: attdata-deploy-infrastructure # Pipeline Name
+
+trigger: none # No CI trigger, triggered by new artifact
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- buildPipelineDefinitionId: ''
+- armArtifactName: 'bashscripts'
+
+steps:
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download Pipeline Artifacts'
+  inputs:
+    buildType: 'specific'
+    project: '$(System.TeamProjectId)'
+    definition: '$(buildPipelineDefinitionId)'
+    buildVersionToDownload: 'latest'
+    artifactName: '$(armArtifactName)'
+    targetPath: '$(Pipeline.Workspace)/$(armArtifactName)'

@@ -42,5 +42,24 @@ Let us start with a build pipeline that creates and publishes build artifacts fo
 
     ![build pipeline output](img/lab5_build_pipeline_output2.png)
 
+With this we have now successfully created a build pipeline that takes a subset of files from our repository and publishes them as artifacts.
+
+You can also find your build artifacts from within the Azure DevOps UI when you goto the pipeline run details:
+
+![build pipeline output status](img/lab3_build_pipeline_output_status.png)
+
+You can click on it to see in details which files where published.
+
+![build pipeline artifacts](img/lab5_build_pipeline_artifacts.png)
+
+We will see in the next task how to work with these artifacts.
+
+## 5.2 Working with build artifacts
+
+In our previous task we have copied a subset of files from a repository and published them as build artifacts.
+
+We now want to consume these build artifacts to do something with them. Therefore we will now create a release pipeline.
+
+1. Goto Pipelines > Pipelines
 
 This concludes Lab 5. Let's now go back to the [Overview](/README.md).
