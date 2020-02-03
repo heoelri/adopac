@@ -72,8 +72,23 @@ We now want to consume these build artifacts to do something with them. Therefor
 1. Select the correct branch (lab5)
 1. Paste the path `/labs/lab5/examples/release.pipeline.yaml`
 1. Click on "Continue"
-1. Update the `buildPipelineDefinitionId` with the definitionId from our previous task
-1. Click on "Run"
+
+    You will now see our example release pipeline:
+
+    ![review release pipeline](img/lab52_review_release_pipeline.png)
+
+    The pipeline contains three main areas. 
+    
+    In 1) you see the variables definition. We are specifiying here the buildPipelineDefinitionId that contains the ID of our build pipeline (created in the previous task).
+
+    In 2) you see the `DownloadPipelineArtifact@2` task that is downloading our artifact that we have created in our build pipeline. There are more paramters to make this even more specific.
+
+    In 3) you see how we execute a script that comes from our artifact.
+
+1. Update the `buildPipelineDefinitionId` with the definitionId from our previous task.
+1. Click on "Save and run" (twice)
+
+
 
 
 This concludes Lab 5. Let's now go back to the [Overview](/README.md).

@@ -1,6 +1,6 @@
 name: attdata-deploy-infrastructure # Pipeline Name
 
-trigger: none # No CI trigger, triggered by new artifact
+trigger: none # No CI trigger
 
 pool:
   vmImage: 'ubuntu-latest'
