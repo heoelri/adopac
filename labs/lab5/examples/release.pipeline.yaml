@@ -6,10 +6,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-- buildPipelineDefinitionId: ''
-- armArtifactName: 'bashscripts'
+  buildPipelineDefinitionId: ''
+  armArtifactName: 'bashscripts'
 
 steps:
+
+# Download pipeline artifacts
 - task: DownloadPipelineArtifact@2
   displayName: 'Download Pipeline Artifacts'
   inputs:
@@ -19,3 +21,9 @@ steps:
     buildVersionToDownload: 'latest'
     artifactName: '$(armArtifactName)'
     targetPath: '$(Pipeline.Workspace)/$(armArtifactName)'
+
+# Run a Bash script on macOS, Linux, or Windows
+- task: Bash@3
+  inputs:
+    targetType: 'filePath'
+    filePath: '$(Pipeline.Workspace)/$(armArtifactName)/bashscript.example.sh'

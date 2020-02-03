@@ -52,14 +52,28 @@ You can click on it to see in details which files where published.
 
 ![build pipeline artifacts](img/lab5_build_pipeline_artifacts.png)
 
-We will see in the next task how to work with these artifacts.
+We will see in the next task how to work with these artifacts. Before we proceed, please take a note of the ID of our build pipeline:
+
+![pipeline definition id](img/lab5_pipeline_definitionid.png)
+
+We need this `definitionId` to reference to our build pipeline as part of our next task.
 
 ## 5.2 Working with build artifacts
 
-In our previous task we have copied a subset of files from a repository and published them as build artifacts.
+In our previous task we have created a build pipeline that has copied a subset of files from a repository and published them as build artifacts.
 
 We now want to consume these build artifacts to do something with them. Therefore we will now create a release pipeline.
 
 1. Goto Pipelines > Pipelines
+1. Click "New pipeline"
+1. Select "Azure Repos Git (YAML)"
+1. Select our repository
+1. Select "Existing AZure Pipelines YAML file"
+1. Select the correct branch (lab5)
+1. Paste the path `/labs/lab5/examples/release.pipeline.yaml`
+1. Click on "Continue"
+1. Update the `buildPipelineDefinitionId` with the definitionId from our previous task
+1. Click on "Run"
+
 
 This concludes Lab 5. Let's now go back to the [Overview](/README.md).
