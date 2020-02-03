@@ -36,12 +36,9 @@ This training is all about getting you started with `Pipelines-as-Code` in `Azur
   * [Working with triggers and path](/labs/lab4/lab4.md#42-working-with-triggers-and-path)
   * [Scheduled Triggers](labs/lab4/lab4.md#43-scheduled-trigger)
   
-* [Lab 5 - Versioning, Branches and Conditions](/labs/lab5/lab5.md)
-  * Interact with Branches
-  * Pipeline versioning
-
-* Lab 6 - CI and CD
-* ...
+* [Lab 5 - CI and CD](/labs/lab5/lab5.md)
+  * [Build pipelines and artifacts](labs/lab5/lab5.md#51-build-pipelines-and-artifacts)
+  * [Working with build artifacts](labs/lab5/lab5.md#52-working-with-build-artifacts)
 
 ## License
 

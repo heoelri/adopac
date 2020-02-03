@@ -1,0 +1,29 @@
+name: attdata-deploy-infrastructure # Pipeline Name
+
+trigger: none # No CI trigger
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildPipelineDefinitionId: ''
+  armArtifactName: 'bashscripts'
+
+steps:
+
+# Download pipeline artifacts
+- task: DownloadPipelineArtifact@2
+  displayName: 'Download Pipeline Artifacts'
+  inputs:
+    buildType: 'specific'
+    project: '$(System.TeamProjectId)'
+    definition: '$(buildPipelineDefinitionId)'
+    buildVersionToDownload: 'latest'
+    artifactName: '$(armArtifactName)'
+    targetPath: '$(Pipeline.Workspace)/$(armArtifactName)'
+
+# Run a Bash script on macOS, Linux, or Windows
+- task: Bash@3
+  inputs:
+    targetType: 'filePath'
+    filePath: '$(Pipeline.Workspace)/$(armArtifactName)/bashscript.example.sh'

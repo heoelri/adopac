@@ -1,0 +1,20 @@
+name: lab5-build-pipeline
+
+trigger: none
+
+pool:
+  vmImage: 'ubuntu-16.04'
+
+steps:
+# Copy files from a source folder to a target folder using patterns matching file paths (not folder paths)
+- task: CopyFiles@2
+  inputs:
+    contents: '**/*.sh' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    flattenFolders: true # Optional
+
+# Publish script files as build artifacts
+- task: PublishPipelineArtifact@1
+  inputs:
+    path: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'bashscripts'
