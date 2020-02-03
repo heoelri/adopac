@@ -87,8 +87,21 @@ We now want to consume these build artifacts to do something with them. Therefor
 
 1. Update the `buildPipelineDefinitionId` with the definitionId from our previous task.
 1. Click on "Save and run" (twice)
+1. In our job details, click on "Job"
 
+Here we will now find the `Download Pipeline Artifacts` task that is downloading the artifacts from a specific build pipeline:
 
+![review release output](img/lab52_review_release_pipeline_output.png)
 
+And an example where we execute a script that is coming from our artifacts:
+
+![review release output](img/lab52_review_release_pipeline_output2.png)
+
+And that was a short introduction into CI and CD (build and release) with a YAML-based pipeline in Azure DevOps.
+
+This separation can be useful in many ways. 
+
+* Single Build, multiple Release (for example with a shared scripts or template repository)
+* Versioning Artifacts like Templates and Scripts to release a specific version of it
 
 This concludes Lab 5. Let's now go back to the [Overview](/README.md).
