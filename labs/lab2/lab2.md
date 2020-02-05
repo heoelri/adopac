@@ -89,7 +89,7 @@ The default setting is to delete your newly created branch after merging. Leave 
 
 Merging our PR will **not** automatically start a new pipeline run as we set our trigger to _none_.
 
-Let us start the pipeline manually and take a look:
+Let us start (by clicking "Run New") the pipeline manually and take a look:
 
 * Click "Pipelines" > "Pipelines"
 * Select our pipeline
