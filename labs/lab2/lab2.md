@@ -129,7 +129,13 @@ Let us now go back to our pipeline and add a dependency:
 
 1. Click "Save"
 1. Select "Commit directly to the master branch"
-1. Click "Save" and Click "Run"
+1. Click "Save"
+
+As we have set the trigger to none, this will not trigger our pipeline automatically anymore.
+
+Click on "Run"
+Select the "master" branch
+Click on "Run"
 
   This will trigger a new run of our pipeline.
 
