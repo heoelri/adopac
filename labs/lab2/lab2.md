@@ -129,7 +129,7 @@ Let us now go back to our pipeline and add a dependency:
 
 1. Click "Save"
 1. Select "Commit directly to the master branch"
-1. Click "Save"
+1. Click "Save" and Click "Run"
 
   This will trigger a new run of our pipeline.
 
