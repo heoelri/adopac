@@ -6,7 +6,7 @@ In case you have not finished [Lab 1](/labs/lab1/lab1.md), please go back and fi
 
 ## 2.1 Separating Tasks into different Jobs
 
-At the end of [Lab 1](/labs/lab1/lab1.md), our pipeline had three tasks. All of them were executed in a single job. But what is a job?
+At the end of [Lab 1](/labs/lab1/lab1.md), our pipeline had three steps. All of them were executed in a single job. But what is a job?
 
 > **What is a job?**  
 > You can organize your pipeline into jobs. Every pipeline has at least one job. A job is a series of steps that run sequentially as a unit. In other words, a job is the smallest unit of work that can be scheduled to run.  
