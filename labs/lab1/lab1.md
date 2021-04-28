@@ -30,7 +30,7 @@ Before we can start building our first pipeline, we need a Repository in Azure D
     **Settings:**
 
     * Repository type: Git
-    * Clone URL: `https://github.com/heoelri/adopac.git`
+    * Clone URL: `https://github.com/hahaysh/adopac.git`
 
 1. And click on "Import".
 
