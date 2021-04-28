@@ -16,9 +16,6 @@ At the time of writing this lab guide 'Multi-stage pipelines' is still a preview
 
     ![enable preview features 2](img/lab1_enable_preview_features_2.png)
 
-1. In the preview features pane turn 'on' `Multi-stage pipelines` for you as a user.
-
-    ![enable preview feautures 3](img/lab1_enable_preview_features_3.png)
 
 ### 1.1.2 Import our Repository from GitHub
 
