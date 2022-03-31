@@ -16,7 +16,7 @@ In our previous lab we have created a pipeline using the wizard. The wizard crea
 
 ```YAML
 pool:
-  vmImage: 'ubuntu-16.04'
+  vmImage: 'ubuntu-latest'
 steps:
 - bash: echo "Hello world"
 ```
@@ -35,7 +35,7 @@ trigger: none
 jobs:
 - job: part1
   pool:
-    vmImage: 'ubuntu-16.04'
+    vmImage: 'ubuntu-latest'
   steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
@@ -47,7 +47,7 @@ jobs:
 
 - job: part2
   pool:
-    vmImage: 'ubuntu-16.04'
+    vmImage: 'ubuntu-latest'
   steps:
   - task: Bash@3
     inputs:
@@ -187,13 +187,13 @@ stages:
   jobs:
   - job: stage1part1
     pool:
-      vmImage: 'ubuntu-16.04'
+      vmImage: 'ubuntu-latest'
     steps:
     - script: echo Hello, world!
       displayName: 'Run a one-line script'
   - job: stage1part2
     pool:
-      vmImage: 'ubuntu-16.04'
+      vmImage: 'ubuntu-latest'
       steps:
       - script: |
           echo Add other tasks to build, test, and deploy your project.
@@ -204,7 +204,7 @@ stages:
   jobs:
   - job: stage2part1
     pool:
-      vmImage: 'ubuntu-16.04'
+      vmImage: 'ubuntu-latest'
     steps:
     - task: Bash@3
       inputs:
